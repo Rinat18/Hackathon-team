@@ -4,7 +4,7 @@ import { UseProduct } from "../../context/ProductContextProvider";
 
 export default function EditProductsPage() {
   const { id } = useParams();
-  const { getOneProduct, oneProduct, editProduct } = UseProduct();
+  const { getOneProduct, oneProduct, editProducts } = UseProduct();
 
   const [product, setProduct] = useState({
     title: "",
@@ -23,7 +23,7 @@ export default function EditProductsPage() {
     }
   };
   const handleClick = () => {
-    editProduct(id, product);
+    editProducts(id, product);
   };
   useEffect(() => {
     getOneProduct(id);
@@ -36,23 +36,38 @@ export default function EditProductsPage() {
   return (
     <div>
       <h1>ADMIN PAGE: EDIT</h1>
-      <input name="title" label="title" onChange={handleInput} type="text" />
+      <input
+        name="title"
+        label="title"
+        value={product.title}
+        onChange={handleInput}
+        type="text"
+      />
       <input
         name="description"
         label="description"
+        value={product.description}
         onChange={handleInput}
         type="text"
       />
       <input
         name="category"
         label="category"
+        value={product.category}
         onChange={handleInput}
         type="text"
       />
-      <input name="price" label="Price" onChange={handleInput} type="number" />
+      <input
+        name="price"
+        value={product.price}
+        label="Price"
+        onChange={handleInput}
+        type="number"
+      />
       <input
         name="image"
         label="Image URL"
+        value={product.image}
         onChange={handleInput}
         type="text"
       />

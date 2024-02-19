@@ -55,7 +55,7 @@ export default function ProductContextProvider({ children }) {
 
   const editProducts = async (id, editedProduct) => {
     await axios.patch(`${API_PROD}/${id}`, editedProduct);
-    navigate("/list");
+    navigate("/");
   };
 
   //! GET_ONE_PRODUCT

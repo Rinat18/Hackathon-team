@@ -6,13 +6,18 @@ export default function ProductListPage() {
   const { getProducts, products } = UseProduct();
   useEffect(() => {
     getProducts();
-  });
-  return (
+  }, []);
+  console.log(products);
 
-    <div style={{ width: "100%", height: "100vh" }}>
-      {products.map((elem) => (
-        <ProductCard key={elem.id} elem={elem} />
-      ))}
+  return (
+    <div style={{ marginTop: "50px", width: "100%", height: "100vh" }}>
+      {products && (
+        <>
+          {products.map((elem) => (
+            <ProductCard key={elem.id} elem={elem} />
+          ))}
+        </>
+      )}
     </div>
   );
 }
