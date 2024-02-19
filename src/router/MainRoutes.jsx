@@ -19,7 +19,7 @@ export default function MainRoutes() {
     <>
         <Routes>
             {PUBLIC_ROUTES.map((elem) => (
-                <Route key={elem.path} element={elem.element} />
+                <Route key={elem.path} path={elem.path} element={elem.element} />
             ))}
         </Routes>
     </>
