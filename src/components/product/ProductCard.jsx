@@ -5,7 +5,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import eclipse from "../../images/Ellipse 336.png";
 import "./Product.scss";
 import { useCart } from "../../context/CartContextProvider";
-
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 export default function ProductCard({ elem }) {
   const { cart, readCart, addToCart, checkProductInCart } = useCart();
 
@@ -26,13 +27,16 @@ export default function ProductCard({ elem }) {
           <FavoriteBorderIcon sx={{ color: "green" }} />
         </div>
         <div className="card__overlayCart">
-          {
-            checkProductInCart(elem.id) ? (
-              <button style={{backgroundColor: "#222222"}} onClick={() => addToCart(elem)}>Уже в корзинe</button>
-            ) : (
-              <button onClick={() => addToCart(elem)}>В корзину</button>
-            )
-          }
+          {checkProductInCart(elem.id) ? (
+            <button
+              style={{ backgroundColor: "#222222" }}
+              onClick={() => addToCart(elem)}
+            >
+              Уже в корзинe
+            </button>
+          ) : (
+            <button onClick={() => addToCart(elem)}>В корзину</button>
+          )}
         </div>
       </div>
 
@@ -52,10 +56,15 @@ export default function ProductCard({ elem }) {
             <img src={eclipse} alt="" />
             <div>Steam</div>
           </div>
-        </div>
-        <div className="card__admin">
-          <button onClick={() => deleteProduct(elem.id)}>Delete</button>
-          <button onClick={() => navigate(`edit/${elem.id}`)}>Edit</button>
+
+          <DeleteIcon
+            sx={{ color: "white", ml:"15px" }}
+            onClick={() => deleteProduct(elem.id)}
+          />
+          <EditIcon
+            sx={{ color: "white", ml:"10px" }}
+            onClick={() => navigate(`edit/${elem.id}`)}
+          />
         </div>
       </div>
     </div>

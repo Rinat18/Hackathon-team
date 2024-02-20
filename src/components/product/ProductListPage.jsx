@@ -10,7 +10,7 @@ export default function ProductListPage() {
   console.log(products);
 
   return (
-    <div style={{ marginTop: "50px", width: "100%", height: "100vh" }}>
+    <div className="cardList">
       {products && (
         <>
           {products.map((elem) => (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import Avatar from "@mui/material/Avatar";
@@ -7,14 +7,23 @@ import union from "../../images/Union.png";
 import catalogLogo from "../../images/Group 5287.png";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
+import { getProductsCountInCart } from "../../helpers/function";
+import { useCart } from "../../context/CartContextProvider";
+import { Badge } from "@mui/base";
 
 export default function Navbar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [cartCount, setCartCount] = useState(0);
+  const { addToCart } = useCart();
+  useEffect(() => {
+    setCartCount(getProductsCountInCart());
+  }, [addToCart]);
+
   return (
     <>
       <header className="header">
         <div className="header__container">
-          <div className="header__logo">
+          <div onClick={() => navigate("/")} className="header__logo">
             <img src={headerlogo} alt="" />
           </div>
           <img className="header__catalog" src={catalogLogo} alt="" />
@@ -24,7 +33,13 @@ export default function Navbar() {
           </div>
           <div className="header__links">
             <FavoriteBorderIcon sx={{ marginRight: "10px", color: "white" }} />
-            <ShoppingCartCheckoutIcon onClick={() => navigate("/cart")} sx={{ color: "green" }} />
+            <Badge badgeContent={cartCount} color="primary">
+              <ShoppingCartCheckoutIcon
+                onClick={() => navigate("/cart")}
+                sx={{ color: "green" }}
+              />
+            </Badge>
+
             <div className="header__userName">
               <div className="header__userName_name">Rinat</div>
               <Avatar
