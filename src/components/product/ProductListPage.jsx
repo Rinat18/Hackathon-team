@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { UseProduct } from "../../context/ProductContextProvider";
 import ProductCard from "./ProductCard";
 import SideBar from "./SideBar";
-
+import "../pages/Pages.scss"
 export default function ProductListPage() {
   const { getProducts, products } = UseProduct();
   useEffect(() => {
@@ -11,10 +11,7 @@ export default function ProductListPage() {
   console.log(products);
 
   return (
-    <div className="list-container">
-      <div className="sidebar">
-        <SideBar />
-      </div>
+  
       <div className="cardList">
         {products && (
           <>
@@ -24,6 +21,5 @@ export default function ProductListPage() {
           </>
         )}
       </div>
-    </div>
   );
 }
