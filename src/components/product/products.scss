@@ -1,20 +1,68 @@
+// body {
+//   background-color: black;
+// }
+
 .containerSideBar {
+  font-family: Manrope;
+  margin-top: 125px;
+  position: absolute;
+  button {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #fff;
+    background-color: inherit;
+    color: #fff;
+    border-radius: 15px;
+    margin-top: 20px;
+  }
+  input {
+    border-radius: 7px;
+    background: rgba(196, 196, 196, 0.05);
+    border: 1px #606367 solid;
+    width: 220px;
+    height: 40px;
+
+    &::placeholder {
+      font-size: 15px;
+      font-family: Manrope;
+      opacity: 1;
+    }
+  }
 }
 .containerSiderBar {
   // .containerSiderBar__title
 
   &__title {
+    h3 {
+      font-family: Manrope;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 130%;
+      margin-top: 20px;
+      color: white;
+    }
   }
 }
 .containerSideBar-title {
   // .containerSideBar-title__checkbox
-
   &__checkbox {
     display: flex;
     flex-direction: column;
+
+    label {
+      width: 220px;
+      font-family: Manrope;
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+
+      input {
+        margin-right: 10px;
+      }
+    }
   }
 }
-
+// ? checkbox
 .containerSideBar {
   input[type="checkbox"] {
     appearance: none;
@@ -26,8 +74,8 @@
 
     border-radius: 3px;
 
-    border: 1px solid #77be1d;
-    background-color: white;
+    border: 1px solid gray;
+    background-color: inherit;
 
     padding: 2px;
 
@@ -41,5 +89,46 @@
     align-items: center;
 
     margin-right: 10px;
+  }
+}
+
+// ? range
+.containerSideBar {
+  // Your existing styles for containerSideBar
+
+  // Styling for input[type="text"] (as provided in the previous response)
+
+  // Styling for input[type="range"]
+  input[type="range"] {
+    -webkit-appearance: none; // Remove the default styling for webkit browsers
+    width: 100%; // Set the width of the range input to occupy the full container width
+    height: 10px; // Set the height of the range track
+    background: #d3d3d3; // Set the background color of the range track
+    outline: none; // Remove the default outline
+    opacity: 0.7; // Set the opacity of the range track
+    border-radius: 5px; // Make the range track slightly round
+    margin-top: 10px; // Add some top margin
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none; // Remove the default styling for webkit browsers
+      appearance: none; // Remove the default styling for other browsers
+      width: 20px; // Set the width of the thumb
+      height: 20px; // Set the height of the thumb
+      background: #27ae60; // Set the background color of the thumb (green)
+      border-radius: 50%; // Make the thumb round
+      cursor: pointer; // Change the cursor to pointer when hovering over the thumb
+    }
+
+    &::-moz-range-thumb {
+      width: 20px; // Set the width of the thumb for Firefox
+      height: 20px; // Set the height of the thumb for Firefox
+      background: #27ae60; // Set the background color of the thumb for Firefox (green)
+      border-radius: 50%; // Make the thumb round for Firefox
+      cursor: pointer; // Change the cursor to pointer when hovering over the thumb for Firefox
+    }
+
+    &:focus {
+      outline: none; // Remove the default focus outline
+    }
   }
 }
