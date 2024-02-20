@@ -1,0 +1,45 @@
+.containerSideBar {
+}
+.containerSiderBar {
+  // .containerSiderBar__title
+
+  &__title {
+  }
+}
+.containerSideBar-title {
+  // .containerSideBar-title__checkbox
+
+  &__checkbox {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.containerSideBar {
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 3px;
+
+    border: 1px solid #77be1d;
+    background-color: white;
+
+    padding: 2px;
+
+    &:checked {
+      background-color: #27ae60;
+    }
+  }
+
+  label {
+    display: inline-flex;
+    align-items: center;
+
+    margin-right: 10px;
+  }
+}
