@@ -1,3 +1,4 @@
+
 .header{
 display: flex;
 width: 100%;
@@ -55,3 +56,78 @@ height: 80px;
     color: white;
 }
 }
+
+@import url("https://fonts.googleapis.com/css?family=Manrope:200,300,regular,500,600,700,800");
+
+.conteiner {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.carel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 100px;
+
+  span {
+    font-size: 32px;
+    font-weight: 800;
+
+    b {
+      color: rgb(119, 190, 29);
+      font-family: Manrope;
+      font-size: 20px;
+      font-weight: 800;
+      margin-left: 20px;
+    }
+  }
+  p {
+    margin-top: 20px;
+    font-family: Manrope;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 160%;
+  }
+  .button {
+    margin-top: 41px;
+    display: flex;
+
+    button:first-child {
+      width: 167px;
+      height: 73px;
+      padding: 23px 40px 27px 40px;
+      border-radius: 15px;
+      background: rgb(255, 255, 255);
+      border: none;
+      transition: background-color 0.3s ease;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: #cccccc3e;
+      }
+    }
+    button:last-child {
+      border: none;
+      border-radius: 15px;
+      background: inherit;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      width: 167px;
+      height: 73px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+}
+.carousel-inner {
+  overflow: visible !important; // Принудительно установить overflow: visible
+}
+
