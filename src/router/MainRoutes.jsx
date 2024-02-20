@@ -7,6 +7,7 @@ import DetailProductPage from "../components/product/DetailProductPage";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "../components/pages/AboutUs";
 import Cart from "../components/cart/Cart";
+import FilterationPage from "../components/pages/FilterationPage";
 
 export default function MainRoutes() {
   const PUBLIC_ROUTES = [
@@ -16,7 +17,7 @@ export default function MainRoutes() {
     { link: "/detail/:id", element: <DetailProductPage /> },
     { link: "/cart", element: <Cart /> },
     { link: "/about", element: <AboutUs /> },
-    { link: "/list", element: <ProductListPage /> },
+    { link: "/filter", element: <FilterationPage /> },
   ];
 
   return (
