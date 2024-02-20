@@ -7,21 +7,24 @@ import DetailProductPage from "../components/product/DetailProductPage";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "../components/pages/AboutUs";
 
+
 export default function MainRoutes() {
   const PUBLIC_ROUTES = [
-    { path: "/", element: <HomePage /> },
-    { path: "/list", element: <ProductListPage /> },
-    { path: "/add", element: <AddProductPage /> },
-    { path: "/edit/:id", element: <EditProductsPage /> },
-    { path: "/detail/:id", element: <DetailProductPage /> },
-    { path: "/about", element: <AboutUs /> },
+    { link: "/", element: <HomePage /> },
+    { link: "/add", element: <AddProductPage /> },
+    { link: "/edit/:id", element: <EditProductsPage /> },
+    { link: "/detail/:id", element: <DetailProductPage /> },
+    { link: "/cart", element: <Cart /> },
+    { link: "/about", element: <AboutUs /> },
+
   ];
 
   return (
     <>
       <Routes>
         {PUBLIC_ROUTES.map((elem) => (
-          <Route key={elem.path} path={elem.path} element={elem.element} />
+          <Route key={elem.link} path={elem.link} element={elem.element} />
+
         ))}
       </Routes>
     </>
