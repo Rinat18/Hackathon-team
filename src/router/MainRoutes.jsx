@@ -18,6 +18,7 @@ export default function MainRoutes() {
     { link: "/cart", element: <Cart /> },
     { link: "/about", element: <AboutUs /> },
     { link: "/filter", element: <FilterationPage /> },
+    
   ];
 
   return (

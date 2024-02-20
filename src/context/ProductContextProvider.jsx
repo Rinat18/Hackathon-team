@@ -11,7 +11,7 @@ export const UseProduct = () => useContext(productContext);
 // ! STATE'S
 const INIT_STATE = {
   products: [],
-  oneProducts: {},
+  oneProduct: {},
   categories: [],
 };
 
