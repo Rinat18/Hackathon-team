@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./components/home/Navbar";
 import MainRoutes from "./router/MainRoutes";
 import Footer from "./components/home/Footer";
-import HomePage from "./components/pages/HomePage";
+import AboutUs from "./components/pages/AboutUs";
 
 export default function App() {
   return (
