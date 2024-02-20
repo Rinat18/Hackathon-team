@@ -46,7 +46,12 @@ export default function ProductCard({ elem }) {
           <p className="card__discount">discount</p>
           <p className="card__originalPrice">Original Price</p>
         </div>
-        <div className="card__title">{elem.title}</div>
+        <div
+          onClick={() => navigate(`/detail/${elem.id}`)}
+          className="card__title"
+        >
+          {elem.title}
+        </div>
         <div className="card__accs">
           <div className="card__steam">
             <img src={eclipse} alt="" />
@@ -58,11 +63,11 @@ export default function ProductCard({ elem }) {
           </div>
 
           <DeleteIcon
-            sx={{ color: "white", ml:"15px" }}
+            sx={{ color: "white", ml: "15px" }}
             onClick={() => deleteProduct(elem.id)}
           />
           <EditIcon
-            sx={{ color: "white", ml:"10px" }}
+            sx={{ color: "white", ml: "10px" }}
             onClick={() => navigate(`edit/${elem.id}`)}
           />
         </div>
