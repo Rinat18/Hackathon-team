@@ -16,7 +16,6 @@ export default function ProductCard({ elem }) {
     readCart();
     readFavorite();
   }, []);
-  console.log(checkProductInCart());
   const navigate = useNavigate();
   const { deleteProduct } = UseProduct();
   return (
