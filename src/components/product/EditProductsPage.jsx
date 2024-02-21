@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { UseProduct } from "../../context/ProductContextProvider";
 
 export default function EditProductsPage() {
   const { id } = useParams();
-  const { getOneProduct, oneProduct, editProducts } = UseProduct();
+  const { getOneProduct, oneProduct, editProduct } = UseProduct();
 
   const [product, setProduct] = useState({
     title: "",
@@ -23,7 +23,7 @@ export default function EditProductsPage() {
     }
   };
   const handleClick = () => {
-    editProducts(id, product);
+    editProduct(id, product);
   };
   useEffect(() => {
     getOneProduct(id);
@@ -34,44 +34,73 @@ export default function EditProductsPage() {
     }
   }, [oneProduct]);
   return (
-    <div>
+    <div className="add-page">
       <h1>ADMIN PAGE: EDIT</h1>
-      <input
-        name="title"
-        label="title"
-        value={product.title}
-        onChange={handleInput}
-        type="text"
-      />
-      <input
-        name="description"
-        label="description"
-        value={product.description}
-        onChange={handleInput}
-        type="text"
-      />
-      <input
-        name="category"
-        label="category"
-        value={product.category}
-        onChange={handleInput}
-        type="text"
-      />
-      <input
-        name="price"
-        value={product.price}
-        label="Price"
-        onChange={handleInput}
-        type="number"
-      />
-      <input
-        name="image"
-        label="Image URL"
-        value={product.image}
-        onChange={handleInput}
-        type="text"
-      />
-      <button onClick={handleClick}>Update Product</button>
+      <div className="container-add">
+        <div className="wrapper">
+          <div className="form-box add">
+            <h2>Product Editor</h2>
+            <p>Complete the form, to update info about product</p>
+            <form action="">
+              <div className="input-box">
+                <input
+                  name="title"
+                  onChange={handleInput}
+                  type="text"
+                  required
+                  value={product.title}
+                />
+                <label>Title</label>
+              </div>
+              <div className="input-box">
+                <input
+                  name="description"
+                  onChange={handleInput}
+                  type="text"
+                  required
+                  value={product.description}
+                />
+                <label>Description</label>
+              </div>
+              <div className="input-box">
+                <input
+                  name="category"
+                  onChange={handleInput}
+                  type="text"
+                  required
+                  value={product.category}
+                />
+                <label>Category</label>
+              </div>
+              <div className="input-box">
+                <input
+                  name="price"
+                  onChange={handleInput}
+                  type="text"
+                  requiredvalue={product.price}
+                />
+                <label>Price</label>
+              </div>
+
+              <div className="input-box">
+                <input
+                  name="image"
+                  onChange={handleInput}
+                  type="text"
+                  required
+                  value={product.image}
+                />
+                <label>Image</label>
+              </div>
+              <Link to={"/"}>
+                <button className="btn-add-card" onClick={handleClick}>
+                  Update Product
+                </button>
+              </Link>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
