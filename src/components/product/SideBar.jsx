@@ -4,10 +4,9 @@ import { UseProduct } from "../../context/ProductContextProvider";
 import { useSearchParams } from "react-router-dom";
 
 export default function SideBar() {
-  const [price, setPrice] = useState(50); // Initial price value
+  const [price, setPrice] = useState(50);
   const { categories, getCategories, fetchByParams } = UseProduct();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(categories);
   const [search, setSearch] = useState(searchParams.get("q") || "");
   useEffect(() => {
     setSearchParams({
@@ -19,7 +18,7 @@ export default function SideBar() {
     getCategories();
   }, []);
   const handlePriceChange = (event) => {
-    setPrice(event.target.value); // Update the price when the range input changes
+    setPrice(event.target.value);
   };
 
   return (
@@ -50,6 +49,7 @@ export default function SideBar() {
                     id={elem.name}
                     name="category"
                     value={elem.name}
+                    label={elem.name}
                   />
                   <label htmlFor={elem.name}>{elem.name}</label>
                 </div>
@@ -65,8 +65,8 @@ export default function SideBar() {
               min="0"
               max="6000"
               step="1"
-              value={price} // Set the value of the range input to the price
-              onChange={handlePriceChange} // Handle changes to the range input
+              value={price}
+              onChange={handlePriceChange}
             />
           </div>
         </div>
