@@ -1,35 +1,39 @@
-.home{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #13101B;
-    &__container{
-        width: 90%;
-        
-    }
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #13101b;
+  &__container {
+    width: 90%;
+  }
 }
 
-.filterList{
-    width: 100%;
+.filterList {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &__container {
+    width: 90%;
     display: flex;
-    justify-content: center;
-    &__container{
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-    }
+    justify-content: space-between;
+  }
 }
 
-.sideBar{
-    width: 20%;
+.sideBar {
+  width: 20%;
 }
 
-.list{
-    width: 80%;
-    display: flex;
-    justify-content: center;
+.list {
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
+.cardList {
+  width: 100%;
+  justify-content: center;
+}
+
 .cardList{
     width: 100%;
     justify-content: center;
