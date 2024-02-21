@@ -7,11 +7,14 @@ import "./Product.scss";
 import { useCart } from "../../context/CartContextProvider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import { useFavorite } from "../../context/FavoritesContextProvider";
 export default function ProductCard({ elem }) {
   const { cart, readCart, addToCart, checkProductInCart } = useCart();
+  const { addToFavorite, readFavorite, checkProduct } = useFavorite();
 
   useEffect(() => {
     readCart();
+    readFavorite();
   }, []);
   console.log(checkProductInCart());
   const navigate = useNavigate();
@@ -24,7 +27,10 @@ export default function ProductCard({ elem }) {
           style={{ backgroundColor: "white", borderRadius: "20px" }}
           className="card__overlayFavorites"
         >
-          <FavoriteBorderIcon sx={{ color: "green" }} />
+          <FavoriteBorderIcon
+            onClick={() => addToFavorite(elem)}
+            sx={{ color: "green" }}
+          />
         </div>
         <div className="card__overlayCart">
           {checkProductInCart(elem.id) ? (
