@@ -26,8 +26,6 @@ export default function HomePage() {
       <div className="home">
         <div className="home__container">
           <SliderPage />
-
-
           <div className="cardList">
             {products && (
               <>
