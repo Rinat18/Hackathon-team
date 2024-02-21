@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SliderPage from "../home/SliderPage";
-import ProductListPage from "../product/ProductListPage";
 import "./Pages.scss";
-
 import Pagination from "../product/Pagination";
 import { UseProduct } from "../../context/ProductContextProvider";
 import ProductCard from "../product/ProductCard";
-
 
 export default function HomePage() {
   const { getProducts, products } = UseProduct();
@@ -30,8 +27,6 @@ export default function HomePage() {
         <div className="home__container">
           <SliderPage />
 
-          <ProductListPage />
-
 
           <div className="cardList">
             {products && (
@@ -45,7 +40,6 @@ export default function HomePage() {
           <div className="pagination">
             <Pagination count={count} page={page} handleChange={handleChange} />
           </div>
-
         </div>
       </div>
     </>
