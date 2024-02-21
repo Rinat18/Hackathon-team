@@ -1,11 +1,19 @@
 // body {
 //   background-color: black;
 // }
+.list-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
 .containerSideBar {
   font-family: Manrope;
+  width: 300px;
   margin-top: 125px;
-  position: absolute;
+  position: fixed;
+  z-index: 2;
+
   button {
     width: 200px;
     height: 40px;
@@ -100,31 +108,31 @@
 
   // Styling for input[type="range"]
   input[type="range"] {
-    -webkit-appearance: none; // Remove the default styling for webkit browsers
-    width: 100%; // Set the width of the range input to occupy the full container width
-    height: 10px; // Set the height of the range track
-    background: #d3d3d3; // Set the background color of the range track
-    outline: none; // Remove the default outline
-    opacity: 0.7; // Set the opacity of the range track
-    border-radius: 5px; // Make the range track slightly round
-    margin-top: 10px; // Add some top margin
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    border-radius: 5px;
+    margin-top: 10px;
 
     &::-webkit-slider-thumb {
-      -webkit-appearance: none; // Remove the default styling for webkit browsers
-      appearance: none; // Remove the default styling for other browsers
-      width: 20px; // Set the width of the thumb
-      height: 20px; // Set the height of the thumb
-      background: #27ae60; // Set the background color of the thumb (green)
-      border-radius: 50%; // Make the thumb round
-      cursor: pointer; // Change the cursor to pointer when hovering over the thumb
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #27ae60;
+      border-radius: 50%;
+      cursor: pointer;
     }
 
     &::-moz-range-thumb {
-      width: 20px; // Set the width of the thumb for Firefox
-      height: 20px; // Set the height of the thumb for Firefox
-      background: #27ae60; // Set the background color of the thumb for Firefox (green)
-      border-radius: 50%; // Make the thumb round for Firefox
-      cursor: pointer; // Change the cursor to pointer when hovering over the thumb for Firefox
+      width: 20px;
+      height: 20px;
+      background: #27ae60;
+      border-radius: 50%;
+      cursor: pointer;
     }
 
     &:focus {

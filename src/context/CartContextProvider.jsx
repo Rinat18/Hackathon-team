@@ -1,13 +1,18 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { ACTIONS } from "../helpers/const";
-import { getLocal } from "../helpers/function";
+import {
+  calcSubPrice,
+  calcTotalPrice,
+  getLocal,
+  getProductsCountInCart,
+} from "../helpers/function";
 
 const cartContext = createContext();
 export const useCart = () => useContext(cartContext);
 
 const INIT_STATE = {
   cart: [],
-  cartLength: null,
+  cartLength: getProductsCountInCart(),
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -31,7 +36,7 @@ export default function CartContextProvider({ children }) {
         "cart",
         JSON.stringify({
           products: [],
-          totalPrice: 0,
+          totalPrice: getProductsCountInCart(),
         })
       );
       cart = {
@@ -64,6 +69,8 @@ export default function CartContextProvider({ children }) {
       cart.products = cart.products.filter((elem) => elem.item.id !== card.id);
     }
 
+    cart.totalPrice = calcTotalPrice(cart.products);
+
     localStorage.setItem("cart", JSON.stringify(cart));
 
     dispatch({
@@ -77,20 +84,39 @@ export default function CartContextProvider({ children }) {
   const checkProductInCart = (id) => {
     let cart = getLocal();
     if (cart) {
-      let checked = cart.products.map((elem) => elem.item.id === id);
+      let checked = cart.products.filter((elem) => elem.item.id === id);
       return checked.length > 0 ? true : false;
     }
+  };
+
+  //! COUNT
+  const changeProductCount = (id, count) => {
+    let cart = getLocal();
+    cart.products = cart.products.map((elem) => {
+      if (elem.item.id === id) {
+        elem.count = +count;
+        elem.subPrice = calcSubPrice(elem);
+        cart.totalPrice = calcTotalPrice(cart.products);
+      }
+      return elem;
+    });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch({
+      type: ACTIONS.GET_CART,
+      payload: cart,
+    });
   };
 
   // ! DELETE
   const deleteProductInCart = (id) => {
     let cart = getLocal();
     cart.products = cart.products.filter((elem) => elem.item.id !== id);
-    localStorage.setItem("cart", JSON.stringify(cart))
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
     dispatch({
       type: ACTIONS.GET_CART,
       payload: cart,
-    })
+    });
   };
 
   const values = {
@@ -99,6 +125,8 @@ export default function CartContextProvider({ children }) {
     cart: state.cart,
     checkProductInCart,
     deleteProductInCart,
+    changeProductCount,
+    cartLength: state.cartLength,
   };
   return <cartContext.Provider value={values}>{children}</cartContext.Provider>;
 }

@@ -9,3 +9,35 @@
         
     }
 }
+
+.filterList{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &__container{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.sideBar{
+    width: 20%;
+}
+
+.list{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.cardList{
+    width: 100%;
+    justify-content: center;
+}
+li{
+    border-color: white;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}

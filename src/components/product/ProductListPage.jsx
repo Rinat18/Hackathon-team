@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { UseProduct } from "../../context/ProductContextProvider";
 import ProductCard from "./ProductCard";
-
+import SideBar from "./SideBar";
+import "../pages/Pages.scss"
 export default function ProductListPage() {
   const { getProducts, products } = UseProduct();
   useEffect(() => {
@@ -10,14 +11,15 @@ export default function ProductListPage() {
   console.log(products);
 
   return (
-    <div style={{ marginTop: "50px", width: "100%", height: "100vh" }}>
-      {products && (
-        <>
-          {products.map((elem) => (
-            <ProductCard key={elem.id} elem={elem} />
-          ))}
-        </>
-      )}
-    </div>
+  
+      <div className="cardList">
+        {products && (
+          <>
+            {products.map((elem) => (
+              <ProductCard key={elem.id} elem={elem} />
+            ))}
+          </>
+        )}
+      </div>
   );
 }

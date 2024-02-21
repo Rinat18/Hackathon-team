@@ -5,7 +5,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import eclipse from "../../images/Ellipse 336.png";
 import "./Product.scss";
 import { useCart } from "../../context/CartContextProvider";
-
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 export default function ProductCard({ elem }) {
   const { cart, readCart, addToCart, checkProductInCart } = useCart();
 
@@ -45,7 +46,12 @@ export default function ProductCard({ elem }) {
           <p className="card__discount">discount</p>
           <p className="card__originalPrice">Original Price</p>
         </div>
-        <div className="card__title">{elem.title}</div>
+        <div
+          onClick={() => navigate(`/detail/${elem.id}`)}
+          className="card__title"
+        >
+          {elem.title}
+        </div>
         <div className="card__accs">
           <div className="card__steam">
             <img src={eclipse} alt="" />
@@ -55,10 +61,15 @@ export default function ProductCard({ elem }) {
             <img src={eclipse} alt="" />
             <div>Steam</div>
           </div>
-        </div>
-        <div className="card__admin">
-          <button onClick={() => deleteProduct(elem.id)}>Delete</button>
-          <button onClick={() => navigate(`edit/${elem.id}`)}>Edit</button>
+
+          <DeleteIcon
+            sx={{ color: "white", ml: "15px" }}
+            onClick={() => deleteProduct(elem.id)}
+          />
+          <EditIcon
+            sx={{ color: "white", ml: "10px" }}
+            onClick={() => navigate(`edit/${elem.id}`)}
+          />
         </div>
       </div>
     </div>

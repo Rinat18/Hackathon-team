@@ -11,7 +11,7 @@ export const UseProduct = () => useContext(productContext);
 // ! STATE'S
 const INIT_STATE = {
   products: [],
-  oneProducts: {},
+  oneProduct: {},
   categories: [],
 };
 
@@ -81,6 +81,19 @@ export default function ProductContextProvider({ children }) {
     });
   };
 
+  //! FILTER
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(window.location.search);
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+    console.log(search);
+    const url = `${window.location.pathname}?${search}`;
+    navigate(url);
+  };
+
   const values = {
     addProduct,
     getProducts,
@@ -91,6 +104,7 @@ export default function ProductContextProvider({ children }) {
     oneProduct: state.oneProduct,
     createCategory,
     getCategories,
+    fetchByParams,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
