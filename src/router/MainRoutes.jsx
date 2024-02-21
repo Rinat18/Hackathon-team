@@ -10,7 +10,6 @@ import AboutUs from "../components/pages/AboutUs";
 import Cart from "../components/cart/Cart";
 import FilterationPage from "../components/pages/FilterationPage";
 
-
 export default function MainRoutes() {
   const PUBLIC_ROUTES = [
     { link: "/", element: <HomePage /> },
@@ -19,10 +18,8 @@ export default function MainRoutes() {
     { link: "/edit/:id", element: <EditProductsPage /> },
     { link: "/detail/:id", element: <DetailProductPage /> },
     { link: "/about", element: <AboutUs /> },
-
     { link: "/filter", element: <FilterationPage /> },
-    
-
+    { link: "/cart", element: <Cart /> },
   ];
 
   return (
