@@ -1,7 +1,7 @@
 import React from "react";
 import SliderPage from "../home/SliderPage";
 import ProductListPage from "../product/ProductListPage";
-import "./Pages.scss"
+import "./Pages.scss";
 
 export default function HomePage() {
   return (
@@ -9,9 +9,9 @@ export default function HomePage() {
       <div className="home">
         <div className="home__container">
           <SliderPage />
-
           <ProductListPage />
         </div>
       </div>
     </>
-);
+  );
+}
