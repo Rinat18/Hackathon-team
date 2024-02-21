@@ -8,7 +8,6 @@ export default function ProductListPage() {
   useEffect(() => {
     getProducts();
   }, []);
-  console.log(products);
 
   return (
     <div className="cardList">

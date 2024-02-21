@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SliderPage from "../home/SliderPage";
-import ProductListPage from "../product/ProductListPage";
 import "./Pages.scss";
-
 import Pagination from "../product/Pagination";
 import { UseProduct } from "../../context/ProductContextProvider";
 import ProductCard from "../product/ProductCard";
@@ -28,7 +26,6 @@ export default function HomePage() {
       <div className="home">
         <div className="home__container">
           <SliderPage />
-
           <div className="cardList">
             {products && (
               <>

@@ -7,7 +7,7 @@ export default function SideBar() {
   const [price, setPrice] = useState(50); // Initial price value
   const { categories, getCategories, fetchByParams } = UseProduct();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams);
+  console.log(categories);
   const [search, setSearch] = useState(searchParams.get("q") || "");
   useEffect(() => {
     setSearchParams({
@@ -25,30 +25,39 @@ export default function SideBar() {
   return (
     <>
       <div className="containerSideBar">
-        <input type="text" placeholder="Я ищу..." />
+        <input
+          style={{ color: "#fff" }}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Я ищу..."
+        />
         <div className="containerSiderBar__title">
           <h3>Categories</h3>
           <div className="containerSideBar-title__checkbox">
-            <label htmlFor="account">
-              <input type="checkbox" id="account" name="account" />
-              Rasing
-            </label>
-            <label htmlFor="key">
-              <input type="checkbox" id="key" name="key" />
-              Shooters
-            </label>
-            <label htmlFor="activation">
-              <input type="checkbox" id="activation" name="activation" />
-              Role Play
-            </label>
-            <label htmlFor="artifact">
-              <input type="checkbox" id="artifact" name="artifact" />
-              Strategy
-            </label>
+            <div onChange={(e) => fetchByParams("category", e.target.value)}>
+              <input
+                type="radio"
+                id="all"
+                name="category"
+                value="all"
+                defaultChecked
+              />
+              <label htmlFor="all">All</label>
+              {categories.map((elem) => (
+                <div key={elem.id}>
+                  <input
+                    type="radio"
+                    id={elem.name}
+                    name="category"
+                    value={elem.name}
+                  />
+                  <label htmlFor={elem.name}>{elem.name}</label>
+                </div>
+              ))}
+            </div>
             <label style={{ marginTop: 30 }} htmlFor="priceRange">
               Цена: {price}
             </label>{" "}
-            {/* Display the current price */}
             <input
               type="range"
               id="priceRange"
