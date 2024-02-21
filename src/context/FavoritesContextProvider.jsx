@@ -23,55 +23,56 @@ const FavoritesContextProvider = ({ children }) => {
 
   // !READ
   const readFavorite = () => {
-    let favorite = getLocalFavorites();
-    if (!favorite) {
+    let favorites = getLocalFavorites();
+    if (!favorites) {
       localStorage.setItem(
-        "favorite",
+        "favorites",
         JSON.stringify({
-          favorites: [],
+          favorite: [],
         })
       );
-      favorite = {
-        favorites: [],
+      favorites = {
+        favorite: [],
       };
     }
     dispatch({
       type: ACTIONS.GET_FAVORITE,
-      payload: favorite,
+      payload: favorites,
     });
   };
 
   // !ADD TO FAVORITE
   const addToFavorite = (card) => {
-    let favorite = getLocalFavorites();
-    let newFavItem = {
-      item: card,
-    };
-    let checkCardInFav = favorite.favorites.filter(
-      (elem) => elem.item.id === card.id
+    let favorites = getLocalFavorites();
+
+    let checkCardInFav = favorites.favorite.filter(
+      (elem) => elem.id === card.id
     );
+
     if (checkCardInFav.length === 0) {
-      favorite.favorites.push(newFavItem);
+      favorites.favorite.push(card);
     } else {
-      favorite.products = favorite.products.filter(
-        (elem) => elem.item.id !== card.id
+      favorites.favorite = favorites.favorite.filter(
+        (elem) => elem.id !== card.id
       );
     }
-    localStorage.setItem("favorite", JSON.stringify(favorite));
+    localStorage.setItem("favorites", JSON.stringify(favorites));
     dispatch({
       type: ACTIONS.GET_FAVORITE,
-      payload: favorite,
+      payload: favorites,
     });
   };
 
   //   ! check Product
   const checkProduct = (id) => {
-    let favorite = getLocalFavorites();
-    if (favorite) {
-      let checked = favorite.products.filter((elem) => elem.item.id === id);
+    let favorites = getLocalFavorites();
+    if (favorites) {
+      let checked = favorites.favorite.filter((elem) => elem.id === id);
       return checked.length > 0 ? true : false;
     }
   };
+
+
 
   const values = {
     favorites: state.favorites,

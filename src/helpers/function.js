@@ -15,6 +15,10 @@ export const calcSubPrice = (elem) => {
   return elem.item.price * elem.count;
 };
 export const getLocalFavorites = () => {
-  const favorites = JSON.parse(localStorage.getItem("favorite"));
+  const favorites = JSON.parse(localStorage.getItem("favorites"));
   return favorites;
+};
+export const getFavoriteCount = () => {
+  let favorites = getLocalFavorites();
+  return favorites ? favorites.favorite.length : 0;
 };

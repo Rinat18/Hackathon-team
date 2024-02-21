@@ -29,7 +29,7 @@ export default function ProductCard({ elem }) {
         >
           <FavoriteBorderIcon
             onClick={() => addToFavorite(elem)}
-            sx={{ color: "green" }}
+            sx={{ color: checkProduct(elem.id) ? "black" : "green" }}
           />
         </div>
         <div className="card__overlayCart">

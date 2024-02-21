@@ -7,9 +7,13 @@ import union from "../../images/Union.png";
 import catalogLogo from "../../images/Group 5287.png";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
-import { getProductsCountInCart } from "../../helpers/function";
+import {
+  getFavoriteCount,
+  getProductsCountInCart,
+} from "../../helpers/function";
 import { useCart } from "../../context/CartContextProvider";
 import { Badge } from "@mui/base";
+import { useFavorite } from "../../context/FavoritesContextProvider";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -18,7 +22,11 @@ export default function Navbar() {
   useEffect(() => {
     setCartCount(getProductsCountInCart());
   }, [addToCart]);
-
+  const { addToFavorite } = useFavorite();
+  const [favoriteCount, setFavoriteCount] = useState(0);
+  useEffect(() => {
+    setFavoriteCount(getFavoriteCount());
+  }, [addToFavorite]);
   return (
     <>
       <header className="header">
@@ -32,7 +40,17 @@ export default function Navbar() {
             <img src={union} alt="" />
           </div>
           <div className="header__links">
-            <FavoriteBorderIcon sx={{ marginRight: "10px", color: "white" }} />
+            <Badge
+              badgeContent={favoriteCount}
+              sx={{ marginRight: "10px" }}
+              color="primary"
+            >
+              <FavoriteBorderIcon
+                sx={{ marginRight: "5px", color: "white" }}
+                onClick={() => navigate("/favorites")}
+              />
+            </Badge>
+
             <Badge badgeContent={cartCount} color="primary">
               <ShoppingCartCheckoutIcon
                 onClick={() => navigate("/cart")}
