@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { UseProduct } from "../../context/ProductContextProvider";
@@ -15,4 +23,5 @@ export default function DetailProductPage() {
       <div>{oneProduct.title}</div>
     </div>
   );
+
 }

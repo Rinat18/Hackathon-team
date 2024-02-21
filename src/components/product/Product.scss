@@ -1,3 +1,4 @@
+
 .cardList{
     display: flex;
     flex-wrap: wrap;
@@ -9,9 +10,11 @@
 .card{
     height: 600px;
     width: 300px;
+
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+
     background-color: transparent;
     border: none;
     margin-bottom: 20px;
@@ -111,16 +114,17 @@
         transition: 1s;
     }
 
-    
-    &__admin{
-        margin-top: 10px;
-    }
+
+  &__admin {
+    margin-top: 10px;
+  }
 }
 .card__image:hover .card__overlayCart {
-    opacity: 1;
-    z-index: 1;
+  opacity: 1;
+  z-index: 1;
 }
 .card__image:hover .card__overlayFavorites {
+
     opacity: 1;
     z-index: 1;
 }
@@ -128,3 +132,4 @@
 .paginationList{
     color: #FFFFFF;
 }
+
