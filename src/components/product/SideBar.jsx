@@ -7,7 +7,7 @@ export default function SideBar() {
   const [price, setPrice] = useState(50); // Initial price value
   const { categories, getCategories, fetchByParams } = UseProduct();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams);
+  console.log(categories);
   const [search, setSearch] = useState(searchParams.get("q") || "");
   useEffect(() => {
     setSearchParams({
