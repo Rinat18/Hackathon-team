@@ -93,6 +93,7 @@ export default function ProductContextProvider({ children }) {
     console.log(search);
     const url = `${window.location.pathname}?${search}`;
     navigate(url);
+    getProducts();
   };
 
   const values = {
