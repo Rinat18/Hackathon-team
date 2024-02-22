@@ -31,7 +31,7 @@ export default function SideBar() {
           style={{ color: "#fff" }}
           onChange={(e) => setSearch(e.target.value)}
           type="text"
-          placeholder="Я ищу..."
+          placeholder="Я ищу...."
         />
         <div className="containerSiderBar__title">
           <h3>Categories</h3>
