@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import Avatar from "@mui/material/Avatar";
-import headerlogo from "../../images/Group 6012.png";
+
 import union from "../../images/Union.png";
-import catalogLogo from "../../images/Group 5287.png";
+import catalogLogo from "../../images/catalogMain.svg";
 import "./HomePage.scss";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,6 +14,7 @@ import {
 import { useCart } from "../../context/CartContextProvider";
 import { Badge } from "@mui/base";
 import { useFavorite } from "../../context/FavoritesContextProvider";
+import logoMain from "../../images/logoMain.svg";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -29,12 +30,23 @@ export default function Navbar() {
   }, [addToFavorite]);
   return (
     <>
+      <div className="header-top">
+        <div className="header-top__money">
+          <b>RU $</b>
+          <p>Накопительный счет</p>
+        </div>
+      </div>
       <header className="header">
         <div className="header__container">
           <div onClick={() => navigate("/")} className="header__logo">
-            <img src={headerlogo} alt="" />
+            <img src={logoMain} alt="" />
           </div>
-          <img className="header__catalog" src={catalogLogo} alt="" />
+          <img
+            className="header__catalog"
+            style={{ width: 25 }}
+            src={catalogLogo}
+            alt=""
+          />
           <div className="header__input">
             <input placeholder="Поиск" type="text" />
             <img src={union} alt="" />
@@ -46,7 +58,7 @@ export default function Navbar() {
               color="primary"
             >
               <FavoriteBorderIcon
-                sx={{ marginRight: "5px", color: "white" }}
+                sx={{ marginRight: "2px", color: "white" }}
                 onClick={() => navigate("/favorites")}
               />
             </Badge>
@@ -57,7 +69,6 @@ export default function Navbar() {
                 sx={{ color: "green" }}
               />
             </Badge>
-
             <div className="header__userName">
               <div className="header__userName_name">Rinat</div>
               <Avatar

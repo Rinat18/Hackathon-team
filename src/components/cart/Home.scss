@@ -171,3 +171,44 @@
 .base-Badge-badge {
   color: white;
 }
+.cart__product__icons {
+  svg {
+    margin-top: 90px;
+  }
+}
+.cartEmty {
+  font-family: Manrope;
+  text-align: center;
+  font-size: 34px;
+}
+.formPaymant__cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  // width: 300px;
+  height: 230px;
+  cursor: pointer;
+  transition: 0.4ms ease-in-out;
+  &:hover {
+    border: 1px solid #77be1d;
+  }
+  img {
+    padding: 5%;
+  }
+  span {
+    color: rgb(255, 255, 255);
+    font-family: Manrope;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 5%;
+  }
+}
+
+.payment {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 500px);
+  max-width: 90%;
+  margin: 0 auto;
+}
