@@ -28,16 +28,16 @@ export default function ProductCard({ elem }) {
         >
           <FavoriteBorderIcon
             onClick={() => addToFavorite(elem)}
-            sx={{ color: checkProduct(elem.id) ? "black" : "green" }}
+            sx={{ fill: checkProduct(elem.id) ? "green" : "black" }}
           />
         </div>
         <div className="card__overlayCart">
-          {checkProductInCart(elem.id) ? (
+          {elem && checkProductInCart(elem.id) ? (
             <button
               style={{ backgroundColor: "#222222" }}
               onClick={() => addToCart(elem)}
             >
-              Уже в корзинe
+              Уже в корзине
             </button>
           ) : (
             <button onClick={() => addToCart(elem)}>В корзину</button>
