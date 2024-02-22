@@ -244,3 +244,10 @@
     line-height: 130%;
   }
 }
+.MuiButtonBase-root {
+  svg {
+    path {
+      fill: white;
+    }
+  }
+}

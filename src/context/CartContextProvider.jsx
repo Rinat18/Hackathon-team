@@ -19,6 +19,8 @@ const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case ACTIONS.GET_CART:
       return { ...state, cart: action.payload };
+    case "CLEAR_CART":
+      return { ...state, cart: [], cartLength: 0 };
     default:
       return state;
   }
@@ -83,6 +85,7 @@ export default function CartContextProvider({ children }) {
 
   const checkProductInCart = (id) => {
     let cart = getLocal();
+    console.log(id);
     if (cart) {
       let checked = cart.products.filter((elem) => elem.item.id === id);
       return checked.length > 0 ? true : false;
@@ -118,8 +121,13 @@ export default function CartContextProvider({ children }) {
       payload: cart,
     });
   };
-
+  // ! CLEAR CART
+  const clearCart = () => {
+    localStorage.removeItem("cart"); // Удаляем данные о корзине из локального хранилища
+    dispatch({ type: "CLEAR_CART" });
+  };
   const values = {
+    clearCart,
     readCart,
     addToCart,
     cart: state.cart,
