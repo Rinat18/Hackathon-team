@@ -39,6 +39,32 @@ export default function HomePage() {
             <Pagination count={count} page={page} handleChange={handleChange} />
           </div>
         </div>
+        <div className="maincraftCard">
+          <div className="maincraftCard__items">
+            <span>
+              Играй уже сейчас в <br /> Minecraft
+            </span>
+            <p>
+              4 999 Р <b>-40%</b>
+            </p>
+            <div className="maincraftCardItems__btn">
+              <button>Купить </button>
+              <button>В избранное</button>
+            </div>
+          </div>
+          <div className="maincraftCard__items2">
+            <span>
+              Играй уже сейчас в <br /> Minecraft
+            </span>
+            <p>
+              4 999 Р <b>-40%</b>
+            </p>
+            <div className="maincraftCardItems__btn">
+              <button>Купить </button>
+              <button>В избранное</button>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

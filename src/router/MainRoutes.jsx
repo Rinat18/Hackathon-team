@@ -11,6 +11,7 @@ import Cart from "../components/cart/Cart";
 import FilterationPage from "../components/pages/FilterationPage";
 
 import Favorites from "../components/favorites/Favorites";
+import RegisterPage from "../components/pages/RegisterPage";
 
 export default function MainRoutes() {
   const PUBLIC_ROUTES = [
@@ -23,6 +24,7 @@ export default function MainRoutes() {
     { link: "/filter", element: <FilterationPage /> },
     { link: "/cart", element: <Cart /> },
     { link: "/favorites", element: <Favorites /> },
+    { link: "/register", element: <RegisterPage /> },
   ];
 
   return (
