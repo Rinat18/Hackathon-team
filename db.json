@@ -1,3 +1,59 @@
 {
-    "product" : []
+  "products": [
+    {
+      "title": "Minecraft",
+      "description": "'Minecraft' - это песочница с открытым миром, где игроки могут строить, исследовать и выживать в различных виртуальных мирах, состоящих из блоков. Игра предлагает два основных режима: выживание, где игрокам необходимо добывать ресурсы и защищаться от опасностей, и творчество, где нет ограничений для строительства и творчества. Благодаря своей открытости и множеству возможностей для творчества, Minecraft привлекает миллионы игроков по всему миру и является одной из самых влиятельных видеоигр в истории.",
+      "category": "Role Play",
+      "price": 4500,
+      "image": "https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg",
+      "id": "3"
+    },
+    {
+      "id": "66ff",
+      "title": "Conter  Strike 2",
+      "description": "Today we’re introducing the Anubis Collection, featuring 19 weapon finishes themed around the newest addition to Counter-Strike’s Active Duty map pool.",
+      "category": "Shooter",
+      "price": 2000,
+      "image": "https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg"
+    },
+    {
+      "title": "Journey",
+      "description": "Journey — компьютерная игра в жанре приключенческой игры, разработанная компанией Thatgamecompany. Игроку предстоит совершить путешествие к очень далёкой горе.",
+      "category": "Role Play",
+      "price": 2500,
+      "image": "https://upload.wikimedia.org/wikipedia/ru/4/47/Journey_game.jpg",
+      "": "Role Play",
+      "id": "IN5TEeT"
+    },
+    {
+      "title": "Dota 2",
+      "description": "Dota 2 — многопользовательская командная компьютерная игра в жанре MOBA, разработанная и изданная корпорацией Valve.",
+      "category": "Strategy",
+      "price": 0,
+      "image": "https://m.media-amazon.com/images/M/MV5BZDQxMjVmMjYtZTU4OC00MzRhLTljNTgtMTAwMDg3YzhlY2M4L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg",
+      "id": "Ze-fqYT"
+    }
+  ],
+  "category": [
+    {
+      "name": "Shooter",
+      "id": 1
+    },
+    {
+      "name": "Racing",
+      "id": 2
+    },
+    {
+      "name": "Role Play",
+      "id": 3
+    },
+    {
+      "name": "Strategy",
+      "id": 4
+    }
+  ]
+
 }
+
+
+
