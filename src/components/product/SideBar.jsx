@@ -33,7 +33,9 @@ export default function SideBar() {
           type="text"
           placeholder="Я ищу...."
         />
-        <div className="containerSiderBar__title">
+        <form
+          className="containerSiderBar__title"
+        >
           <h3>Categories</h3>
           <div className="containerSideBar-title__checkbox">
             <div>
@@ -81,11 +83,12 @@ export default function SideBar() {
                   </label>
 
                   {/* <label htmlFor={elem.name}></label> */}
+
                 </div>
               ))}
             </div>
             <label style={{ marginTop: 30 }} htmlFor="priceRange">
-              Цена: {price}
+              Price: {price}
             </label>{" "}
             <input
               type="range"
@@ -98,7 +101,8 @@ export default function SideBar() {
               onChange={handlePriceChange}
             />
           </div>
-        </div>
+        </form>
+
         <button>Сбросить фильтры</button>
       </div>
     </>
