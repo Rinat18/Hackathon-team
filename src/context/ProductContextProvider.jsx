@@ -39,7 +39,7 @@ export default function ProductContextProvider({ children }) {
   // ! RENDER
   const getProducts = async () => {
     const { data } = await axios(`${API_PROD}${window.location.search}`);
-    console.log(window.location.search);
+    console.log(data);
     dispatch({
       type: ACTIONS.GET_PRODUCTS,
       payload: data,

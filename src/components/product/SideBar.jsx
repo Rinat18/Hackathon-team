@@ -30,16 +30,19 @@ export default function SideBar() {
           type="text"
           placeholder="Я ищу..."
         />
-        <div className="containerSiderBar__title">
+        <form
+          className="containerSiderBar__title"
+        >
           <h3>Categories</h3>
           <div className="containerSideBar-title__checkbox">
-            <div onChange={(e) => fetchByParams("category", e.target.value)}>
+            <div>
               <input
                 type="radio"
                 id="all"
                 name="category"
                 value="all"
                 defaultChecked
+                onChange={(e) => fetchByParams("category", e.target.value)}
               />
               <label htmlFor="all">All</label>
               {categories.map((elem) => (
@@ -49,14 +52,14 @@ export default function SideBar() {
                     id={elem.name}
                     name="category"
                     value={elem.name}
-                    label={elem.name}
+                    onChange={(e) => fetchByParams("category", e.target.value)}
                   />
                   <label htmlFor={elem.name}>{elem.name}</label>
                 </div>
               ))}
             </div>
             <label style={{ marginTop: 30 }} htmlFor="priceRange">
-              Цена: {price}
+              Price: {price}
             </label>{" "}
             <input
               type="range"
@@ -69,7 +72,8 @@ export default function SideBar() {
               onChange={handlePriceChange}
             />
           </div>
-        </div>
+        </form>
+
         <button>Сбросить фильтры</button>
       </div>
     </>
