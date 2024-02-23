@@ -38,7 +38,8 @@ export default function ProductContextProvider({ children }) {
 
   // ! RENDER
   const getProducts = async () => {
-    const { data } = await axios(API_PROD);
+    const { data } = await axios(`${API_PROD}${window.location.search}`);
+    console.log(window.location.search);
     dispatch({
       type: ACTIONS.GET_PRODUCTS,
       payload: data,
@@ -53,7 +54,7 @@ export default function ProductContextProvider({ children }) {
 
   // ! EDIT
 
-  const editProducts = async (id, editedProduct) => {
+  const editProduct = async (id, editedProduct) => {
     await axios.patch(`${API_PROD}/${id}`, editedProduct);
     navigate("/");
   };
@@ -92,6 +93,7 @@ export default function ProductContextProvider({ children }) {
     console.log(search);
     const url = `${window.location.pathname}?${search}`;
     navigate(url);
+    getProducts();
   };
 
   const values = {
@@ -99,11 +101,12 @@ export default function ProductContextProvider({ children }) {
     getProducts,
     products: state.products,
     deleteProduct,
-    editProducts,
     getOneProduct,
     oneProduct: state.oneProduct,
-    createCategory,
+    editProduct,
     getCategories,
+    categories: state.categories,
+    createCategory,
     fetchByParams,
   };
   return (

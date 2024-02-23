@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SliderPage from "../home/SliderPage";
-import ProductListPage from "../product/ProductListPage";
 import "./Pages.scss";
 import Pagination from "../product/Pagination";
 import { UseProduct } from "../../context/ProductContextProvider";
@@ -27,7 +26,6 @@ export default function HomePage() {
       <div className="home">
         <div className="home__container">
           <SliderPage />
-
           <div className="cardList">
             {products && (
               <>
@@ -39,6 +37,32 @@ export default function HomePage() {
           </div>
           <div className="pagination">
             <Pagination count={count} page={page} handleChange={handleChange} />
+          </div>
+        </div>
+        <div className="maincraftCard">
+          <div className="maincraftCard__items">
+            <span>
+              Играй уже сейчас в <br /> Minecraft
+            </span>
+            <p>
+              4 999 Р <b>-40%</b>
+            </p>
+            <div className="maincraftCardItems__btn">
+              <button>Купить </button>
+              <button>В избранное</button>
+            </div>
+          </div>
+          <div className="maincraftCard__items2">
+            <span>
+              Играй уже сейчас в <br /> Minecraft
+            </span>
+            <p>
+              4 999 Р <b>-40%</b>
+            </p>
+            <div className="maincraftCardItems__btn">
+              <button>Купить </button>
+              <button>В избранное</button>
+            </div>
           </div>
         </div>
       </div>
