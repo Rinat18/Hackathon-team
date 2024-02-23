@@ -51,7 +51,7 @@ export default function Navbar() {
             <input placeholder="Поиск" type="text" />
             <img src={union} alt="" />
           </div>
-          <div className="header__links">
+          <div className="header__links" style={{ display: "flex" }}>
             <Badge
               badgeContent={favoriteCount}
               sx={{ marginRight: "10px" }}
@@ -61,6 +61,16 @@ export default function Navbar() {
                 sx={{ marginRight: "2px", color: "white" }}
                 onClick={() => navigate("/favorites")}
               />
+              {/* <svg
+                viewBox="0 0 384 512"
+                onClick={() => navigate("/favorites")}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"
+                  fill="white"
+                />
+              </svg> */}
             </Badge>
 
             <Badge badgeContent={cartCount} color="primary">
