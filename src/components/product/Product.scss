@@ -252,3 +252,78 @@
     }
   }
 }
+.commentsSection {
+  width: 90%;
+  margin: 0 auto;
+
+  h4 {
+    color: rgb(255, 255, 255);
+    font-family: Manrope;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 130%;
+  }
+  .commentsSection__block {
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+    span {
+      color: rgb(255, 255, 255);
+      font-family: Manrope;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 130%;
+    }
+  }
+
+  .commentsSection__title {
+    display: flex;
+    justify-content: center;
+  }
+  .commentsSection-input {
+    display: flex;
+    justify-content: center;
+
+    input {
+      width: 500px;
+      margin: 0;
+      color: #ffffff;
+      height: 40px;
+      border-radius: 8px;
+      background: inherit;
+    }
+    svg {
+      width: 40px;
+      padding-bottom: 10px;
+    }
+  }
+}
+.input-container {
+  display: flex;
+}
+
+.input-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #7b7e82ae; /* цвет обводки при фокусе */
+}
+
+.input-field::placeholder {
+  color: #999; /* цвет placeholder */
+}
