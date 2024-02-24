@@ -15,8 +15,10 @@ import { useCart } from "../../context/CartContextProvider";
 import { Badge } from "@mui/base";
 import { useFavorite } from "../../context/FavoritesContextProvider";
 import logoMain from "../../images/logoMain.svg";
+import { useAuth } from "../../context/AuthContextProvider";
 
 export default function Navbar() {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(0);
   const { addToCart } = useCart();
@@ -25,9 +27,11 @@ export default function Navbar() {
   }, [addToCart]);
   const { addToFavorite } = useFavorite();
   const [favoriteCount, setFavoriteCount] = useState(0);
-  useEffect(() => {
-    setFavoriteCount(getFavoriteCount());
-  }, [addToFavorite]);
+  useEffect(() => {}, [addToFavorite]);
+  setFavoriteCount(getFavoriteCount());
+  if (getFavoriteCount() == 0) {
+    setFavoriteCount(0);
+  }
   return (
     <>
       <div className="header-top">
@@ -61,16 +65,6 @@ export default function Navbar() {
                 sx={{ marginRight: "2px", color: "white" }}
                 onClick={() => navigate("/favorites")}
               />
-              {/* <svg
-                viewBox="0 0 384 512"
-                onClick={() => navigate("/favorites")}
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"
-                  fill="white"
-                />
-              </svg> */}
             </Badge>
 
             <Badge badgeContent={cartCount} color="primary">
@@ -80,10 +74,10 @@ export default function Navbar() {
               />
             </Badge>
             <div className="header__userName">
-              <div className="header__userName_name">Rinat</div>
+              <div className="header__userName_name">{user}</div>
               <Avatar
                 sx={{ border: "2px solid green" }}
-                alt="Remy Sharp"
+                alt={user}
                 src="/static/images/avatar/2.jpg"
               />
             </div>
