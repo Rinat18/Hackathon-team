@@ -45,6 +45,17 @@
   &__links {
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  &__links_nav {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__links_nav * {
+    display: flex;
+    justify-content: space-around;
   }
   &__userName {
     display: flex;
@@ -54,6 +65,17 @@
   &__userName_name {
     margin-right: 10px;
     color: white;
+  }
+}
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
   }
 }
 

@@ -6,7 +6,7 @@ import Avatar from "@mui/material/Avatar";
 import union from "../../images/Union.png";
 import catalogLogo from "../../images/catalogMain.svg";
 import "./HomePage.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getFavoriteCount,
   getProductsCountInCart,
@@ -27,11 +27,11 @@ export default function Navbar() {
   }, [addToCart]);
   const { addToFavorite } = useFavorite();
   const [favoriteCount, setFavoriteCount] = useState(0);
-  useEffect(() => {}, [addToFavorite]);
-  setFavoriteCount(getFavoriteCount());
-  if (getFavoriteCount() == 0) {
-    setFavoriteCount(0);
-  }
+  useEffect(() => {
+    setFavoriteCount(getFavoriteCount());
+  }, [addToFavorite]);
+
+
   return (
     <>
       <div className="header-top">
@@ -45,17 +45,38 @@ export default function Navbar() {
           <div onClick={() => navigate("/")} className="header__logo">
             <img src={logoMain} alt="" />
           </div>
-          <img
-            className="header__catalog"
-            style={{ width: 25 }}
-            src={catalogLogo}
-            alt=""
+ 
+          <div className="header__links">
+            <div className="header__links_nav">
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                }}
+                to="/filter"
+              >
+                Games Catalog
+              </Link>
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                }}
+                to="#"
+              >
+                Promotion's
+              </Link>
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                }}
+                to="#"
+              >
+                Support
+              </Link>
+            </div>
           />
-          <div className="header__input">
-            <input placeholder="Поиск" type="text" />
-            <img src={union} alt="" />
-          </div>
-          <div className="header__links" style={{ display: "flex" }}>
             <Badge
               badgeContent={favoriteCount}
               sx={{ marginRight: "10px" }}
