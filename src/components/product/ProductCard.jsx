@@ -8,8 +8,11 @@ import { useCart } from "../../context/CartContextProvider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { useFavorite } from "../../context/FavoritesContextProvider";
+import { admin } from "../../helpers/const";
+import { useAuth } from "../../context/AuthContextProvider";
 
 export default function ProductCard({ elem }) {
+  const {user} = useAuth()
   const { cart, readCart, addToCart, checkProductInCart } = useCart();
   const { addToFavorite, readFavorite, checkProduct } = useFavorite();
 
@@ -48,7 +51,7 @@ export default function ProductCard({ elem }) {
           </svg>
           {/* <FavoriteBorderIcon
             onClick={() => addToFavorite(elem)}
-            sx={{ fill: checkProduct(elem.id) ? "green" : "black" }}
+            sx={{ background: checkProduct(elem.id) ? "green" : "black" }}
           /> */}
         </div>
         <div className="card__overlayCart">
@@ -86,15 +89,18 @@ export default function ProductCard({ elem }) {
             <img src={eclipse} alt="" />
             <div>Steam</div>
           </div>
-
-          <DeleteIcon
-            sx={{ color: "white", ml: "15px" }}
-            onClick={() => deleteProduct(elem.id)}
-          />
-          <EditIcon
-            sx={{ color: "white", ml: "10px" }}
-            onClick={() => navigate(`edit/${elem.id}`)}
-          />
+          {user === admin ? (
+            <>
+              <DeleteIcon
+                sx={{ color: "white", ml: "15px" }}
+                onClick={() => deleteProduct(elem.id)}
+              />
+              <EditIcon
+                sx={{ color: "white", ml: "10px" }}
+                onClick={() => navigate(`edit/${elem.id}`)}
+              />
+            </>
+          ) : null}
         </div>
       </div>
     </div>
