@@ -2,7 +2,7 @@
   "products": [
     {
       "title": "Minecraft",
-      "description": "'Minecraft' - это песочница с открытым миром, где игроки могут строить, исследовать и выживать в различных виртуальных мирах, состоящих из блоков. Игра предлагает два основных режима: выживание, где игрокам необходимо добывать ресурсы и защищаться от опасностей, и творчество, где нет ограничений для строительства и творчества. Благодаря своей открытости и множеству возможностей для творчества, Minecraft привлекает миллионы игроков по всему миру и является одной из самых влиятельных видеоигр в истории.",
+      "description": "'Minecraft' - это песочница с открытым миром, где игроки могут строить, исследовать и выживать в различных виртуальных мирах, состоящих из блоков.",
       "category": "Role Play",
       "price": 4500,
       "image": "https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg",
@@ -32,6 +32,14 @@
       "price": 0,
       "image": "https://m.media-amazon.com/images/M/MV5BZDQxMjVmMjYtZTU4OC00MzRhLTljNTgtMTAwMDg3YzhlY2M4L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg",
       "id": "Ze-fqYT"
+    },
+    {
+      "title": "Need For Speed",
+      "description": "Знаменитая серия гоночных компьютерных игр, созданная компанией Electronic Arts. Игры серии основываются на уличных гонках с использованием различных спортивных автомобилей.",
+      "category": "Racing",
+      "price": 2500,
+      "image": "https://upload.wikimedia.org/wikipedia/ru/0/08/Need_for_Speed_Coverart.jpg",
+      "id": "EJ6wcmL"
     }
   ],
   "category": [
@@ -52,9 +60,4 @@
       "id": 4
     }
   ]
-
 }
-
-
-}
-
