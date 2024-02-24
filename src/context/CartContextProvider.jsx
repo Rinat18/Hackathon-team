@@ -85,7 +85,6 @@ export default function CartContextProvider({ children }) {
 
   const checkProductInCart = (id) => {
     let cart = getLocal();
-    console.log(id);
     if (cart) {
       let checked = cart.products.filter((elem) => elem.item.id === id);
       return checked.length > 0 ? true : false;
@@ -123,7 +122,7 @@ export default function CartContextProvider({ children }) {
   };
   // ! CLEAR CART
   const clearCart = () => {
-    localStorage.removeItem("cart"); // Удаляем данные о корзине из локального хранилища
+    localStorage.removeItem("cart");
     dispatch({ type: "CLEAR_CART" });
   };
   const values = {

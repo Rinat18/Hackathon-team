@@ -76,7 +76,7 @@ export default function Navbar() {
                 Support
               </Link>
             </div>
-          />
+          
             <Badge
               badgeContent={favoriteCount}
               sx={{ marginRight: "10px" }}

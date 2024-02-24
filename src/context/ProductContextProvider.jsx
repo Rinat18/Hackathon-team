@@ -13,6 +13,7 @@ const INIT_STATE = {
   products: [],
   oneProduct: {},
   categories: [],
+  comments: [],
 };
 
 export default function ProductContextProvider({ children }) {
@@ -25,6 +26,8 @@ export default function ProductContextProvider({ children }) {
         return { ...state, oneProduct: action.payload };
       case ACTIONS.GET_CATEGORIES:
         return { ...state, categories: action.payload };
+      case ACTIONS.GET_COMMENTS:
+        return { ...state, comments: action.payload };
       default:
         return state;
     }
@@ -95,8 +98,26 @@ export default function ProductContextProvider({ children }) {
     navigate(url);
     getProducts();
   };
+  // ! GET COMMENTS
 
+  const readComments = async (id) => {
+    const { data } = await axios(`${API_PROD}/${id}`);
+    dispatch({
+      type: ACTIONS.GET_COMMENTS,
+      payload: data.comments,
+    });
+  };
+
+  //! ADD COMMENT
+  const addComments = async (id, obj) => {
+    const { data } = await axios(`${API_PROD}/${id}`);
+    data.comments.push(obj);
+    await axios.patch(`${API_PROD}/${id}`, data);
+    readComments(id);
+  };
   const values = {
+    readComments,
+    addComments,
     addProduct,
     getProducts,
     products: state.products,
@@ -108,6 +129,7 @@ export default function ProductContextProvider({ children }) {
     categories: state.categories,
     createCategory,
     fetchByParams,
+    comments: state.comments,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
