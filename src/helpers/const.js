@@ -8,6 +8,7 @@ export const ACTIONS = {
   GET_CATEGORIES: "GET_CATEGORIES",
   GET_CART: "GET_CART",
   GET_FAVORITE: "GET_FAVORITE",
+  GET_COMMENTS: 'GET_COMMENTS',
 };
 
 export const admin = "admin@gmail.com"

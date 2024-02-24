@@ -274,6 +274,10 @@
     width: 80%;
     height: 500px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     span {
       color: rgb(255, 255, 255);
       font-family: Manrope;
@@ -282,7 +286,11 @@
       line-height: 130%;
     }
   }
-
+.commentsSection__comments{
+  width: 98%;
+  height: 80%;
+  overflow-y: scroll;
+}
   .commentsSection__title {
     display: flex;
     justify-content: center;
