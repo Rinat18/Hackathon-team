@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./products.scss";
 import { UseProduct } from "../../context/ProductContextProvider";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import VoiceSearch from "./VoiceSearch";
 
 export default function SideBar() {
   const [price, setPrice] = useState(50);
+  const navigate = useNavigate();
   const { categories, getCategories, fetchByParams, getProducts } =
     UseProduct();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
   const [priceRange, setPriceRange] = useState({ min: 0, max: 7500 });
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [voiceInput, setVoiceInput] = useState("");
+
   useEffect(() => {
     setSearchParams({
       q: search,
@@ -28,16 +32,40 @@ export default function SideBar() {
     fetchByParams("category", "all");
     setSelectedCategory("all");
   };
+
+  useEffect(() => {
+    if (search !== searchParams.get("q")) {
+      setVoiceInput(search);
+    }
+  }, [search, searchParams]);
+
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  };
+
+  const handleVoiceSearch = (text) => {
+    setSearch(text);
+    setVoiceInput(text);
+  };
+
+  const handleInputChange = (event) => {
+    setSearch(event.target.value);
+    setVoiceInput(event.target.value);
+  };
+
+
   return (
     <>
       <div className="containerSideBar">
         <input
           className="input-search"
           style={{ color: "#fff" }}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleInputChange}
+          value={voiceInput}
           type="text"
           placeholder="Я ищу...."
         />
+        <VoiceSearch onSearch={handleVoiceSearch} />
         <div className="containerSiderBar__title">
           <h3>Categories</h3>
           <div className="containerSideBar-title__checkbox">
@@ -64,7 +92,6 @@ export default function SideBar() {
                 />
                 <h4 style={{ marginTop: "10px" }}>All</h4>
               </label>
-              {/* <label htmlFor="all">All</label> */}
               {categories.map((elem) => (
                 <div key={elem.id}>
                   <label
@@ -90,8 +117,6 @@ export default function SideBar() {
                     />
                     <h4 style={{}}>{elem.name}</h4>
                   </label>
-
-                  {/* <label htmlFor={elem.name}></label> */}
                 </div>
               ))}
             </div>
@@ -154,6 +179,7 @@ export default function SideBar() {
         <button className="btn-add-card" onClick={resetFilters}>
           Сбросить фильтры
         </button>
+
       </div>
     </>
   );

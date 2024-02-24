@@ -15,8 +15,10 @@ import { useCart } from "../../context/CartContextProvider";
 import { Badge } from "@mui/base";
 import { useFavorite } from "../../context/FavoritesContextProvider";
 import logoMain from "../../images/logoMain.svg";
+import { useAuth } from "../../context/AuthContextProvider";
 
 export default function Navbar() {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(0);
   const { addToCart } = useCart();
@@ -28,6 +30,7 @@ export default function Navbar() {
   useEffect(() => {
     setFavoriteCount(getFavoriteCount());
   }, [addToFavorite]);
+
 
   return (
     <>
@@ -42,15 +45,7 @@ export default function Navbar() {
           <div onClick={() => navigate("/")} className="header__logo">
             <img src={logoMain} alt="" />
           </div>
-          {/* <img
-            className="header__catalog"
-            style={{
-              width: 25,
-              cursor: "pointer",
-            }}
-            src={catalogLogo}
-            alt=""
-          /> */}
+ 
           <div className="header__links">
             <div className="header__links_nav">
               <Link
@@ -81,6 +76,7 @@ export default function Navbar() {
                 Support
               </Link>
             </div>
+          />
             <Badge
               badgeContent={favoriteCount}
               sx={{ marginRight: "10px" }}
@@ -99,10 +95,10 @@ export default function Navbar() {
               />
             </Badge>
             <div className="header__userName">
-              <div className="header__userName_name">Rinat</div>
+              <div className="header__userName_name">{user}</div>
               <Avatar
                 sx={{ border: "2px solid green" }}
-                alt="Remy Sharp"
+                alt={user}
                 src="/static/images/avatar/2.jpg"
               />
             </div>

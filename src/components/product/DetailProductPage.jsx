@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { UseProduct } from "../../context/ProductContextProvider";
 import ProductListPage from "./ProductListPage";
 import { useCart } from "../../context/CartContextProvider";
+import { Avatar } from "@mui/material";
+import { Badge } from "react-bootstrap";
 
 export default function DetailProductPage() {
   const { id } = useParams();
@@ -68,6 +70,41 @@ export default function DetailProductPage() {
         <span>Описание Товара</span>
         <div className="description">
           <p>{oneProduct.description}</p>
+        </div>
+      </div>
+      <div className="commentsSection">
+        <h4>Комментарии</h4>
+        <div className="commentsSection__block">
+          <div className="commentsSection__title">
+            <span>Комментарии</span>
+          </div>
+          <div className="commentsSection__comments">
+            <Avatar />
+          </div>
+          <div className="commentsSection-input">
+            <div class="input-container">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="input-field"
+                placeholder="Оставьте ваш комментарии"
+              />
+            </div>
+
+            <svg
+              height="48"
+              viewBox="0 0 48 48"
+              width="48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.02 42l41.98-18-41.98-18-.02 14 30 4-30 4z"
+                fill="white"
+              />
+              <path d="M0 0h48v48h-48z" fill="none" />
+            </svg>
+          </div>
         </div>
       </div>
       <div className="forUsers">
