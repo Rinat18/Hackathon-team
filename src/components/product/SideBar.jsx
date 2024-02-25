@@ -127,6 +127,7 @@ export default function SideBar() {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
         <button className="btn-add-card" onClick={resetFilters}>
