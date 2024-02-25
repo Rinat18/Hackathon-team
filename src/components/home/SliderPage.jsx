@@ -18,8 +18,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { useCart } from "../../context/CartContextProvider";
 const SliderPage = () => {
   const [index, setIndex] = useState(0);
+  const { addToCart } = useCart();
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -131,7 +133,7 @@ const SliderPage = () => {
                 4 999 P <b>-25%</b>
               </span>
               <div className="button">
-                <button>В Корзину</button>
+                <button onClick={() => addToCart()}>В Корзину</button>
                 <button>В Избранное</button>
               </div>
             </div>

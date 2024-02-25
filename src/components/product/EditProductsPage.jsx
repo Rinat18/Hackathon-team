@@ -9,7 +9,7 @@ import { useFavorite } from "../../context/FavoritesContextProvider";
 
 export default function EditProductsPage() {
   const { id } = useParams();
-  const { getOneProduct, oneProduct } = UseProduct();
+  const { getOneProduct, oneProduct, editProduct } = UseProduct();
   const { addToFavorite, readFavorite, checkProduct } = useFavorite();
   useEffect(() => {
     readFavorite();
@@ -32,7 +32,7 @@ export default function EditProductsPage() {
     }
   };
   const handleClick = () => {
-    // editProduct(id, product);
+    editProduct(id, product);
   };
   useEffect(() => {
     getOneProduct(id);
