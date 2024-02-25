@@ -118,60 +118,7 @@ export default function SideBar() {
                 </div>
               ))}
             </div>
-            <div className="wrapper-side">
-              <div className="wrapper-range">
-                <div className="price-input">
-                  <div className="field">
-                    <span style={{ color: "#fff" }}>Min</span>
-                    <input
-                      type="number"
-                      style={{ color: "#fff" }}
-                      className="input-search"
-                      value={priceRange.min}
-                      name="min"
-                    />
-                  </div>
-                  <div className="seperator">-</div>
-                  <div className="field">
-                    <span style={{ color: "#fff" }}>Max</span>
-                    <input
-                      type="number"
-                      style={{ color: "#fff" }}
-                      className="input-search"
-                      value={priceRange.max}
-                      name="max"
-                    />
-                  </div>
-                </div>
-                <div className="slider">
-                  <div
-                    className="progress"
-                    style={{
-                      left: `${(priceRange.min / 10000) * 100}%`,
-                      right: `${(1 - priceRange.max / 10000) * 100}%`,
-                    }}
-                  ></div>
-                </div>
-                <div className="range-input">
-                  <input
-                    type="range"
-                    className="range-min"
-                    min={0}
-                    max={10000}
-                    value={priceRange.min}
-                    step={100}
-                  />
-                  <input
-                    type="range"
-                    className="range-max"
-                    min={0}
-                    max={10000}
-                    value={priceRange.max}
-                    step={100}
-                  />
-                </div>
-              </div>
-            </div>
+       
           </div>
         </div>
         <button className="btn-add-card" onClick={resetFilters}>
