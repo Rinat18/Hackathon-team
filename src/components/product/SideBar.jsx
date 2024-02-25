@@ -6,7 +6,7 @@ import VoiceSearch from "./VoiceSearch";
 
 export default function SideBar() {
   const [price, setPrice] = useState(50);
-  const navigate = useNavigate();
+
   const { categories, getCategories, fetchByParams, getProducts } =
     UseProduct();
   const [searchParams, setSearchParams] = useSearchParams();

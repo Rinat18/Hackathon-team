@@ -106,6 +106,26 @@
       "unlikes": [],
       "image": "https://upload.wikimedia.org/wikipedia/ru/0/08/Need_for_Speed_Coverart.jpg",
       "id": "EJ6wcmL"
+    },
+    {
+      "title": "It Takes Two",
+      "description": "The plot was confirmed to follow the basic premise of the game: lead characters May and Cody are a married couple considering divorce whose minds are inadvertently trapped in two dolls when their daughter starts crying.",
+      "category": "Role Play",
+      "price": 2700,
+      "image": "https://cdn1.epicgames.com/offer/8ae7b3c0f490471b967ce26cc2f6e0e6/EGS_ItTakesTwo_Hazelight_S2_1200x1600-5c82de2d2e21a841dd06ec27e082777e_1200x1600-5c82de2d2e21a841dd06ec27e082777e",
+      "comments": [],
+      "likes": [],
+      "id": "EGc1uqZ"
+    },
+    {
+      "title": "Outlast: Deluxe Edition",
+      "description": "The game revolves around a freelance investigative journalist, Miles Upshur, who decides to investigate a remote psychiatric hospital named Mount Massive Asylum.",
+      "category": "Horror",
+      "price": 3500,
+      "image": "https://image.api.playstation.com/vulcan/coal-image-prod/cdn/molt/ALL/201905/MOLT2276_ZZ/rUhQGewc1LDM3PMCNg.png?w=440",
+      "comments": [],
+      "likes": [],
+      "id": "udKSaaG"
     }
   ],
   "categories": [
@@ -124,6 +144,10 @@
     {
       "name": "Strategy",
       "id": "4"
+    },
+    {
+      "name": "Horror",
+      "id": "LzarFru"
     }
   ]
 }
