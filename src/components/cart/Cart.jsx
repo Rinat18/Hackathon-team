@@ -8,9 +8,18 @@ import { useFavorite } from "../../context/FavoritesContextProvider";
 import webMoney from "../../images/webMoney.png";
 import bitCoin from "../../images/bitcoin.png";
 import pay from "../../images/640px-Samsung_Pay_icon 1.png";
+import addNotification from "react-push-notification";
 export default function Cart() {
   const { addToFavorite, readFavorite, checkProduct } = useFavorite();
-
+  const clickToNotify = () => {
+    addNotification({
+      title: "Ваш заказ оформлен ждите",
+      message: "visit my site",
+      duration: 4000,
+      icon: webMoney,
+      native: true,
+    });
+  };
   const {
     cart,
     readCart,
@@ -101,7 +110,7 @@ export default function Cart() {
                 </div>
                 <button
                   className="cart__totalPrice__buy"
-                  onClick={handleOrderSubmit}
+                  onClick={(clickToNotify, handleOrderSubmit)}
                 >
                   Оформить заказ
                 </button>
