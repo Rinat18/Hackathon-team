@@ -33,11 +33,13 @@ export default function Navbar() {
       setFavoriteCount(0);
     }
   }, [addToFavorite]);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       <div className="header-top"></div>
@@ -46,6 +48,10 @@ export default function Navbar() {
           <div onClick={() => navigate("/")} className="header__logo">
             <img src={logoMain} alt="" />
           </div>
+
+
+
+
           <div className="header__links">
             <div className="burger-menu">
               <div
