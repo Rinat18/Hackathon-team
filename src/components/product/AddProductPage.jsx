@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import "../product/products.scss";
 
 import { UseProduct } from "../../context/ProductContextProvider";
+import CategorySelect from "./CategorySeletct";
+import AddCategory from "./AddCategory";
 
 export default function AddProductPage() {
-  const { addProduct } = UseProduct();
+  const { addProduct, categories, getCategories } = UseProduct();
   const [product, setProduct] = useState({
     title: "",
     description: "",
@@ -14,6 +16,9 @@ export default function AddProductPage() {
     comments: [],
     likes: [],
   });
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   useEffect(() => {}, []);
   const handleInput = (e) => {
     console.log(e.target.name);
@@ -28,14 +33,21 @@ export default function AddProductPage() {
       setProduct(obj);
     }
   };
-  console.log();
+  useEffect(() => {
+    getCategories();
+  }, []);
   const handleClick = () => {
     addProduct(product);
   };
   return (
     <div className="add-page">
       <h1>ADMIN PAGE: ADD</h1>
-
+      <div className="category-add">
+        <button onClick={handleOpen} className="btn-add-card">
+          Add Category
+        </button>
+        <AddCategory open={open} handleClose={handleClose} />
+      </div>
       <div className="container-add">
         <div className="wrapper">
           <div className="form-box add">
@@ -58,16 +70,33 @@ export default function AddProductPage() {
                   type="text"
                   required
                 />
+                <CategorySelect
+                  categories={categories}
+                  handleInput={handleInput}
+                />
                 <label>Description</label>
               </div>
               <div className="input-box">
-                <input
+                <label htmlFor="category"></label>
+                <select
+                  style={{ borderRadius: "15px" }}
+                  id="category"
                   name="category"
                   onChange={handleInput}
-                  type="text"
-                  required
-                />
-                <label>Category</label>
+                >
+                  <option style={{ background: "#000" }} value="all">
+                    All
+                  </option>
+                  {categories.map((elem) => (
+                    <option
+                      style={{ background: "#000" }}
+                      key={elem.id}
+                      value={elem.name}
+                    >
+                      {elem.name}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="input-box">
                 <input

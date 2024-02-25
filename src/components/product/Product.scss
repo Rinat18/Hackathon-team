@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   gap: 2%;
   margin-top: 50px;
-
 }
 
 .card {
@@ -128,7 +127,11 @@
   opacity: 1;
   z-index: 1;
 }
-
+.paginationContainer {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .paginationList {
   color: #ffffff;
 }
@@ -287,11 +290,11 @@
       line-height: 130%;
     }
   }
-.commentsSection__comments{
-  width: 98%;
-  height: 80%;
-  overflow-y: scroll;
-}
+  .commentsSection__comments {
+    width: 98%;
+    height: 80%;
+    overflow-y: scroll;
+  }
   .commentsSection__title {
     display: flex;
     justify-content: center;
