@@ -9,6 +9,7 @@
 .containerSideBar {
   font-family: Manrope;
   margin-top: 20px;
+  position: absolute;
   z-index: 2;
   width: 54%;
 
@@ -249,6 +250,40 @@
   border-bottom: 2px solid #fff;
   margin: 27px 0;
 }
+.input-box-cat {
+  position: relative;
+  height: 40px;
+  width: 80%;
+  border-bottom: 2px solid #fff;
+  margin: 27px 0;
+}
+.input-box-cat label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.input-box-cat input:focus ~ label,
+.input-box-cat input:valid ~ label {
+  top: -10px;
+}
+.input-box-cat input,
+select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
 .input-box label {
   position: absolute;
   top: 50%;
@@ -264,7 +299,8 @@
 .input-box input:valid ~ label {
   top: -10px;
 }
-.input-box input {
+.input-box input,
+select {
   width: 100%;
   height: 100%;
   background: transparent;
