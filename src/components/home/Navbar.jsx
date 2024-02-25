@@ -4,7 +4,6 @@ import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import Avatar from "@mui/material/Avatar";
 
 import union from "../../images/Union.png";
-import catalogLogo from "../../images/catalogMain.svg";
 import "./HomePage.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { getProductsCountInCart } from "../../helpers/function";
@@ -126,14 +125,16 @@ export default function Navbar() {
               {user == "GUEST" ? (
                 <button
                   onClick={() => navigate("/registration")}
-                  className="register__Navbar"
+                  style={{ width: "100px", marginLeft: "10px" }}
+                  className="btn-add-card"
                 >
                   Register
                 </button>
               ) : (
                 <button
                   onClick={() => handleLogout()}
-                  className="logOut__Navbar"
+                  style={{ width: "100px", marginLeft: "10px" }}
+                  className="btn-add-card"
                 >
                   Log-Out
                 </button>
