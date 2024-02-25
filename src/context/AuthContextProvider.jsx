@@ -62,6 +62,7 @@ const AuthContextProvider = ({ children }) => {
 
     const email = localStorage.getItem("email") || "";
     setCurrentUser(email);
+
   }
 
   function handleLogout() {
@@ -76,7 +77,7 @@ const AuthContextProvider = ({ children }) => {
     const { data } = await axios(`${AUTH_API}/account/users/`);
     const email = JSON.parse(localStorage.getItem("email"));
     if (!email) {
-      setUser("Guest");
+      setUser("GUEST");
     } else {
       const user = data.results.find((elem) => elem.email == email);
       setUser(user.email);

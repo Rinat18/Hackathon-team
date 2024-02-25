@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
+
 import { Carousel } from "react-bootstrap";
 import background1 from "../../images/bg1.png";
 import background2 from "../../images/bg2.png";

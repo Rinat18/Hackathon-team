@@ -1,5 +1,5 @@
 export const API_PROD = "http://localhost:8000/products";
-export const API_CAT = "http://localhost:8000/category";
+export const API_CAT = "http://localhost:8000/categories";
 
 // ! keys for switch
 export const ACTIONS = {
@@ -8,6 +8,7 @@ export const ACTIONS = {
   GET_CATEGORIES: "GET_CATEGORIES",
   GET_CART: "GET_CART",
   GET_FAVORITE: "GET_FAVORITE",
+  GET_COMMENTS: 'GET_COMMENTS',
 };
 
 export const admin = "admin@gmail.com"

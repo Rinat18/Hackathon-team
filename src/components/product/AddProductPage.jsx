@@ -11,6 +11,8 @@ export default function AddProductPage() {
     category: "",
     price: 0,
     image: "",
+    comments: [],
+    likes: [],
   });
   useEffect(() => {}, []);
   const handleInput = (e) => {

@@ -45,6 +45,17 @@
   &__links {
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  &__links_nav {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__links_nav * {
+    display: flex;
+    justify-content: space-around;
   }
   &__userName {
     display: flex;
@@ -54,6 +65,17 @@
   &__userName_name {
     margin-right: 10px;
     color: white;
+  }
+}
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
   }
 }
 
@@ -306,4 +328,159 @@
   background-image: url(../../images/bg3.png);
   background-repeat: no-repeat;
   background-size: 100%;
+}
+
+.footer {
+  // .footer__logos
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 150px;
+  &__logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .footer-container__qrCodes {
+    display: flex;
+    flex-direction: column;
+    h3 {
+      color: rgb(255, 255, 255);
+      font-family: Manrope;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 130%;
+      margin-bottom: 15%;
+    }
+  }
+  // .footer__container
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+  }
+}
+.footer-container {
+  // .footer-container__aboutCompany
+
+  &__aboutCompany {
+    display: flex;
+    flex-direction: column;
+    h3 {
+      color: rgb(255, 255, 255);
+      font-family: Manrope;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 130%;
+      margin-bottom: 15%;
+    }
+    span {
+      color: rgb(205, 205, 207);
+      font-family: Manrope;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 130%;
+      cursor: pointer;
+      margin-bottom: 20%;
+    }
+  }
+
+  // .footer-container__contracts
+
+  &__contracts {
+    display: flex;
+    flex-direction: column;
+    h3 {
+      color: rgb(255, 255, 255);
+      font-family: Manrope;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 130%;
+      margin-bottom: 15%;
+    }
+    span {
+      color: rgb(205, 205, 207);
+      font-family: Manrope;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 130%;
+      margin-bottom: 15%;
+      cursor: pointer;
+    }
+  }
+}
+.footer-container__security {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .footer-container-security__webMoney {
+    display: flex;
+    img {
+    }
+  }
+  .footer-container-security-webMoney__verifed {
+    display: flex;
+    flex-direction: column;
+    span {
+      color: rgb(255, 255, 255);
+      font-family: Montserrat;
+      font-size: 13.3px;
+      font-weight: 400;
+      line-height: 16px;
+    }
+    b {
+      color: rgb(255, 255, 255);
+      font-family: Montserrat;
+      font-size: 13.3px;
+      font-weight: 700;
+      line-height: 16px;
+    }
+  }
+
+  .footer-container-security__googleSafe {
+    display: flex;
+
+    .footer-container-security-googleSafe__browsing {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        color: rgb(255, 255, 255);
+        font-family: Montserrat;
+        font-size: 13.3px;
+        font-weight: 400;
+        line-height: 16px;
+      }
+      b {
+        color: rgb(255, 255, 255);
+        font-family: Montserrat;
+        font-size: 13.3px;
+        font-weight: 700;
+        line-height: 16px;
+      }
+    }
+  }
+}
+.footer__ruls {
+  display: flex;
+  justify-content: center;
+  span {
+    color: rgb(99, 104, 109);
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 160%;
+  }
+}
+.footer__ourShop {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  span {
+    color: rgb(99, 104, 109);
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 130%;
+  }
 }
