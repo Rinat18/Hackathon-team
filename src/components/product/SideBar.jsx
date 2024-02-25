@@ -6,14 +6,23 @@ import VoiceSearch from "./VoiceSearch";
 
 export default function SideBar() {
   const [price, setPrice] = useState(50);
-  const navigate = useNavigate();
+  const [maxPriceValue, setMaxPriceValue] = useState(0);
+  const [minPriceValue, setMinPriceValue] = useState(0);
+
   const { categories, getCategories, fetchByParams, getProducts } =
     UseProduct();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 7500 });
+  // const [priceRange, setPriceRange] = useState({ min: 0, max: 7500 });
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [voiceInput, setVoiceInput] = useState("");
+
+  const handleRangeChange = (event) => {
+    setMaxPriceValue(event.target.value);
+  };
+  const handleRangeChangeMin = (event) => {
+    setMinPriceValue(event.target.value);
+  };
 
   useEffect(() => {
     setSearchParams({
@@ -28,7 +37,7 @@ export default function SideBar() {
 
   const resetFilters = () => {
     setSearch("");
-    setPriceRange({ min: 0, max: 7500 });
+    // setPriceRange({ min: 0, max: 7500 });
     fetchByParams("category", "all");
     setSelectedCategory("all");
   };
@@ -118,7 +127,7 @@ export default function SideBar() {
                 </div>
               ))}
             </div>
-       
+
           </div>
         </div>
         <button className="btn-add-card" onClick={resetFilters}>
