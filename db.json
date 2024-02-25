@@ -8,13 +8,35 @@
       "image": "https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg",
       "comments": [
         {
-          "tit": "asdasd"
+          "name": "kana@gmail.com",
+          "text": "gghh",
+          "time": "20:22"
         },
         {
-          "tit": "asdasd"
+          "name": "admin@gmail.com",
+          "text": "asdasd",
+          "time": "20:25"
         },
         {
-          "text": "молчит"
+          "name": "admin@gmail.com",
+          "text": "asdasd",
+          "time": "20:25"
+        },
+        {
+          "name": "admin@gmail.com",
+          "text": "'e",
+          "time": "20:26"
+        },
+        {
+          "name": "admin@gmail.com",
+          "text": "qqq",
+          "time": "20:26"
+        }
+      ],
+      "likes": [
+        {
+          "name": "admin@gmail.com",
+          "time": "21:01"
         }
       ],
       "id": "3"
@@ -28,7 +50,17 @@
       "comments": [
         {
           "text": "aaaa"
+        },
+        {
+          "text": "rrr"
         }
+      ],
+      "likes": [
+        {
+          "time": "20:13"
+        },
+        {},
+        {}
       ],
       "image": "https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg"
     },
@@ -39,6 +71,7 @@
       "price": 2300,
       "image": "https://upload.wikimedia.org/wikipedia/ru/4/47/Journey_game.jpg",
       "comments": [],
+      "likes": [],
       "id": "IN5TEeT"
     },
     {
@@ -47,6 +80,7 @@
       "category": "Strategy",
       "price": 0,
       "comments": [],
+      "likes": [],
       "image": "https://m.media-amazon.com/images/M/MV5BZDQxMjVmMjYtZTU4OC00MzRhLTljNTgtMTAwMDg3YzhlY2M4L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg",
       "id": "Ze-fqYT"
     },
@@ -56,6 +90,7 @@
       "category": "Racing",
       "price": 2500,
       "comments": [],
+      "likes": [],
       "image": "https://upload.wikimedia.org/wikipedia/ru/0/08/Need_for_Speed_Coverart.jpg",
       "id": "EJ6wcmL"
     }

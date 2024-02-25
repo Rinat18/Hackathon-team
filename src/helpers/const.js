@@ -9,6 +9,7 @@ export const ACTIONS = {
   GET_CART: "GET_CART",
   GET_FAVORITE: "GET_FAVORITE",
   GET_COMMENTS: 'GET_COMMENTS',
+  GET_LIKES: 'GET_LIKES',
 };
 
 export const admin = "admin@gmail.com"

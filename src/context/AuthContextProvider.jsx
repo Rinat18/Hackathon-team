@@ -56,7 +56,7 @@ const AuthContextProvider = ({ children }) => {
         Authorization,
       },
     };
-
+    
     const email = localStorage.getItem("email") || "";
     setCurrentUser(email);
 

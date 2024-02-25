@@ -6,6 +6,8 @@ import { useCart } from "../../context/CartContextProvider";
 import { Avatar, IconButton } from "@mui/material";
 import { Badge } from "react-bootstrap";
 import { useAuth } from "../../context/AuthContextProvider";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 
 export default function DetailProductPage() {
   const { id } = useParams();
@@ -18,6 +20,9 @@ export default function DetailProductPage() {
     readComments,
     comments,
     getProducts,
+    addLikes,
+    likes,
+    readLikes,
   } = UseProduct();
   const { addToCart, checkProductInCart } = useCart();
 
@@ -25,18 +30,36 @@ export default function DetailProductPage() {
     getOneProduct(id);
     getProducts();
     readComments(id);
+    readLikes(id)
   }, []);
   console.log(comments);
   const [comm, setComm] = useState("молчит");
   const handleComment = () => {
     const obj = {
-      name: user.email,
+      name: user,
       text: comm,
+      time: new Date().toLocaleTimeString("en-US", {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
     };
     console.log(obj);
     addComments(id, obj);
+    setComm("");
   };
-
+  const addToLikes = () => {
+    const obj = {
+      name: user,
+      time: new Date().toLocaleTimeString("en-US", {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    };
+    addLikes(id, obj);
+  };
+  console.log(likes.length);
   return (
     <>
       <div className="detailsContainer">
@@ -61,6 +84,12 @@ export default function DetailProductPage() {
             ) : (
               <button onClick={() => addToCart(oneProduct)}>В корзину</button>
             )}
+            <Badge badgeContent={likes.length}  color="primary">
+              <ThumbUpOffAltIcon onClick={() => addToLikes()} />
+            </Badge>
+            <Badge badgeContent={0}  color="primary">
+              <ThumbDownOffAltIcon onClick={() => addToLikes()} />
+            </Badge>
           </div>
           <div className="detailsContainer-rightContent__description">
             <div className="detailsContainer-rightContent-description__janr">
@@ -108,8 +137,10 @@ export default function DetailProductPage() {
                     <Avatar alt={user} src="/static/images/avatar/2.jpg" />
                   </IconButton>
                   <div style={{ color: "white", marginLeft: "5px" }}>
-                    <div>{user}</div>
-                    <div>{elem.text}</div>
+                    <div>{elem.name}</div>
+                    <div>
+                      {elem.text} {elem.time}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -122,6 +153,7 @@ export default function DetailProductPage() {
                 name="name"
                 class="input-field"
                 placeholder="Оставьте ваш комментарии"
+                value={comm}
                 onChange={(e) => setComm(e.target.value)}
               />
             </div>

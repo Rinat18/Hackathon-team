@@ -14,6 +14,7 @@ const INIT_STATE = {
   oneProduct: {},
   categories: [],
   comments: [],
+  likes: [],
 };
 
 export default function ProductContextProvider({ children }) {
@@ -28,6 +29,8 @@ export default function ProductContextProvider({ children }) {
         return { ...state, categories: action.payload };
       case ACTIONS.GET_COMMENTS:
         return { ...state, comments: action.payload };
+      case ACTIONS.GET_LIKES:
+        return { ...state, likes: action.payload };
       default:
         return state;
     }
@@ -115,6 +118,29 @@ export default function ProductContextProvider({ children }) {
     await axios.patch(`${API_PROD}/${id}`, data);
     readComments(id);
   };
+  // !READ UP LIKES
+  const readLikes = async (id) => {
+    const { data } = await axios(`${API_PROD}/${id}`);
+    dispatch({
+      type: ACTIONS.GET_LIKES,
+      payload: data.likes,
+    });
+  };
+  // ! ADD UP LIKE
+  const addLikes = async (id, obj) => {
+    const { data } = await axios(`${API_PROD}/${id}`);
+    const check = data.likes.filter((elem) => elem.name === obj.name);
+    if (check.length == 0) {
+      data.likes.push(obj);
+      await axios.patch(`${API_PROD}/${id}`, data);
+      readLikes(id);
+    } else {
+      data.likes = data.likes.filter((elem) => elem.name !== obj.name);
+      await axios.patch(`${API_PROD}/${id}`, data);
+      readLikes(id);
+    }
+  };
+
   const values = {
     readComments,
     addComments,
@@ -130,6 +156,9 @@ export default function ProductContextProvider({ children }) {
     createCategory,
     fetchByParams,
     comments: state.comments,
+    likes: state.likes,
+    readLikes,
+    addLikes,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
