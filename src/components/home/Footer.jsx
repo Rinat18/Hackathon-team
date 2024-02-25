@@ -42,9 +42,9 @@ export default function Footer() {
             <h3>Социальные сети</h3>
             <a href="http://qrcoder.ru" target="_blank">
               <img
-                src="http://qrcoder.ru/code/?https%3A%2F%2Fwww.instagram.com%2Fbakytv_%3Figsh%3DNjFsczI3cDQ5NjBm&2&0"
-                width="100"
-                height="100"
+                src="http://qrcoder.ru/code/?https%3A%2F%2Fyoutu.be%2FdQw4w9WgXcQ&3&0"
+                width="111"
+                height="111"
                 border="0"
                 title="QR код"
               />
