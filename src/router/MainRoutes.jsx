@@ -6,10 +6,8 @@ import EditProductsPage from "../components/product/EditProductsPage";
 import DetailProductPage from "../components/product/DetailProductPage";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "../components/pages/AboutUs";
-
 import Cart from "../components/cart/Cart";
 import FilterationPage from "../components/pages/FilterationPage";
-
 import Favorites from "../components/favorites/Favorites";
 import RegisterPage from "../components/pages/RegisterPage";
 import LoginPage from "../components/pages/LoginPage";

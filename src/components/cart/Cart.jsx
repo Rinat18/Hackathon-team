@@ -31,6 +31,8 @@ export default function Cart() {
     alert(`Ваш заказ под ID ${randomString} оформлен`);
   };
 
+  
+
   return (
     <>
       <div className="cart">
