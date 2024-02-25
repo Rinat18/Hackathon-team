@@ -1,12 +1,5 @@
 import axios from "axios";
-import React, {
-  createContext,
-  useState,
-  ReactNode,
-  SetStateAction,
-  Dispatch,
-  useContext,
-} from "react";
+import React, { createContext, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const authContext = createContext();
@@ -59,19 +52,17 @@ const AuthContextProvider = ({ children }) => {
 
   async function checkAuth() {
     setLoading(true);
-    try {
-      const tokens = JSON.parse(localStorage.getItem("email") || "{}");
-      const Authorization = `Bearer ${tokens.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const email = localStorage.getItem("email") || "";
-      setCurrentUser(email);
-    } finally {
-      setLoading(false);
-    }
+    const tokens = JSON.parse(localStorage.getItem("email") || "{}");
+    const Authorization = `Bearer ${tokens.access}`;
+    const config = {
+      headers: {
+        Authorization,
+      },
+    };
+
+    const email = localStorage.getItem("email") || "";
+    setCurrentUser(email);
+
   }
 
   function handleLogout() {

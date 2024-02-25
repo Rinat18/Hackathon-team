@@ -29,9 +29,10 @@ export default function Navbar() {
   const [favoriteCount, setFavoriteCount] = useState(0);
   useEffect(() => {
     setFavoriteCount(getFavoriteCount());
+    if (getFavoriteCount() == 0) {
+      setFavoriteCount(0);
+    }
   }, [addToFavorite]);
-
-
   return (
     <>
       <div className="header-top">

@@ -21,6 +21,7 @@ export default function HomePage() {
   const handleChange = (e, value) => {
     setPage(value);
   };
+
   return (
     <>
       <div className="home">
