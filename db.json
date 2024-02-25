@@ -18,6 +18,7 @@
           "time": "20:25"
         },
         {
+
           "name": "admin@gmail.com",
           "text": "asdasd",
           "time": "20:25"
@@ -48,19 +49,10 @@
       "category": "Shooter",
       "price": 2000,
       "comments": [
-        {
-          "text": "aaaa"
-        },
-        {
-          "text": "rrr"
-        }
+     
       ],
       "likes": [
-        {
-          "time": "20:13"
-        },
-        {},
-        {}
+    
       ],
       "image": "https://upload.wikimedia.org/wikipedia/ru/d/db/Counter-strike_2.jpg"
     },
