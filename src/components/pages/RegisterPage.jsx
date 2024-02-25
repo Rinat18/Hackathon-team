@@ -6,6 +6,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import AuthContextProvider, {
   useAuth,
 } from "../../context/AuthContextProvider";
+import "./Login.scss";
 // import Loader from "../../components/loader/Loader";
 // import "./LoginPage.css";
 
@@ -88,7 +89,7 @@ export default function RegisterPage() {
       </div> */}
       <section className="login-section">
         <div className="register-box">
-          <form className="center" action="">
+          <div className="center" action="">
             <h2>Registration</h2>
             <div className="input-cont">
               <span className="icon">
@@ -142,7 +143,7 @@ export default function RegisterPage() {
                 <Link to={"/login"}> Login</Link>
               </p>
             </div>
-          </form>
+          </div>
         </div>
       </section>
     </>
