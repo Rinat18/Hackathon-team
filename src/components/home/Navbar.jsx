@@ -34,21 +34,66 @@ export default function Navbar() {
     }
   }, [addToFavorite]);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
-      <div className="header-top">
-        <div className="header-top__money">
-          <b>RU $</b>
-          <p>Накопительный счет</p>
-        </div>
-      </div>
+      <div className="header-top"></div>
       <header className="header">
         <div className="header__container">
           <div onClick={() => navigate("/")} className="header__logo">
             <img src={logoMain} alt="" />
           </div>
 
+
+
+
           <div className="header__links">
+            <div className="burger-menu">
+              <div
+                className={`burger-menu-btn ${isOpen ? "open" : ""}`}
+                onClick={toggleMenu}
+              >
+                <div className="bar1"></div>
+                <div className="bar2"></div>
+                <div className="bar3"></div>
+              </div>
+              {isOpen && (
+                <div className="menu-items">
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                    }}
+                    to="/filter"
+                  >
+                    Games Catalog
+                  </Link>
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                    }}
+                    to="#"
+                  >
+                    Promotion's
+                  </Link>
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                    }}
+                    to="#"
+                  >
+                    Support
+                  </Link>
+                </div>
+              )}
+            </div>
             <div className="header__links_nav">
               <Link
                 style={{
