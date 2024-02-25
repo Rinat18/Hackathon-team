@@ -27,9 +27,6 @@ const AuthContextProvider = ({ children }) => {
       const res = await axios.post(`${AUTH_API}/account/register/`, formData);
       navigate("/");
       console.log(res, "register response");
-    } catch (err) {
-      setError(err.response?.data?.detail || "An error occurred");
-      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -83,6 +80,7 @@ const AuthContextProvider = ({ children }) => {
       setUser(user.email);
       console.log(user);
     }
+
   };
   getUser();
 

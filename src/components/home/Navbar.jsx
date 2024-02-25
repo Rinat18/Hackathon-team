@@ -33,6 +33,7 @@ export default function Navbar() {
       setFavoriteCount(0);
     }
   }, [addToFavorite]);
+
   return (
     <>
       <div className="header-top">
@@ -46,7 +47,7 @@ export default function Navbar() {
           <div onClick={() => navigate("/")} className="header__logo">
             <img src={logoMain} alt="" />
           </div>
- 
+
           <div className="header__links">
             <div className="header__links_nav">
               <Link
@@ -77,7 +78,7 @@ export default function Navbar() {
                 Support
               </Link>
             </div>
-          
+
             <Badge
               badgeContent={favoriteCount}
               sx={{ marginRight: "10px" }}
