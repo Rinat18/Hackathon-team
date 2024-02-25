@@ -11,6 +11,7 @@ import { useFavorite } from "../../context/FavoritesContextProvider";
 import { admin } from "../../helpers/const";
 import { useAuth } from "../../context/AuthContextProvider";
 
+
 export default function ProductCard({ elem }) {
   const { user } = useAuth();
   const { cart, readCart, addToCart, checkProductInCart } = useCart();
