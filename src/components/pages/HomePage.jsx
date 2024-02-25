@@ -4,6 +4,7 @@ import "./Pages.scss";
 import Pagination from "../product/Pagination";
 import { UseProduct } from "../../context/ProductContextProvider";
 import ProductCard from "../product/ProductCard";
+import steav from "../../images/steave.png";
 
 export default function HomePage() {
   const { getProducts, products } = UseProduct();
@@ -48,21 +49,26 @@ export default function HomePage() {
             <p>
               4 999 Р <b>-40%</b>
             </p>
-            <div className="maincraftCardItems__btn">
+            <div className="maincraftCardItems__btn" style={{ marginLeft: 20 }}>
               <button>Купить </button>
               <button>В избранное</button>
             </div>
           </div>
-          <div className="maincraftCard__items2">
-            <span>
-              Играй уже сейчас в <br /> Minecraft
-            </span>
-            <p>
-              4 999 Р <b>-40%</b>
-            </p>
-            <div className="maincraftCardItems__btn">
-              <button>Купить </button>
-              <button>В избранное</button>
+          <div className="maincraftCard__steave">
+            <div className="maincraftCard-steve__rightContent">
+              <span>
+                Играй уже сейчас в <br /> Minecraft dangerous
+              </span>
+              <p>
+                4 999 Р <b>-40%</b>
+              </p>
+              <div className="maincraftCard-steave-rightContent__btn">
+                <button>Купить </button>
+                <button>В избранное</button>
+              </div>
+            </div>
+            <div className="maincraftCard-steave__leftContent">
+              <img src={steav} alt="" />
             </div>
           </div>
         </div>

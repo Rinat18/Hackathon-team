@@ -262,6 +262,76 @@
     }
   }
 }
+.maincraftCard__steave {
+  background-image: url("../../images/Rectangle\ 3311.png");
+  width: 620px;
+  height: 310px;
+  margin-top: 50px;
+  display: flex;
+  position: relative;
+  margin-left: 20px;
+
+  .maincraftCard-steve__rightContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 30px;
+    width: 300px;
+    span {
+      color: rgb(255, 255, 255);
+      font-family: Manrope;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 120%;
+      margin-top: 10px;
+    }
+    p {
+      color: rgb(255, 255, 255);
+      font-family: Manrope;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 130%;
+
+      b {
+        color: rgb(255, 232, 23);
+        font-family: Manrope;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 130%;
+        margin-left: 20px;
+      }
+    }
+    .maincraftCard-steave-rightContent__btn {
+      button:first-child {
+        font-family: Manrope;
+        width: 144px;
+        height: 63px;
+        border-radius: 15px;
+        border: none;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+      }
+      button:last-child {
+        cursor: pointer;
+        font-family: Manrope;
+        color: #fff;
+        border: none;
+        background-color: inherit;
+      }
+    }
+  }
+  .maincraftCard-steave__leftContent {
+    img {
+      bottom: -49px;
+      // right: 20px;
+      position: absolute;
+      width: 353px;
+      height: 465px;
+    }
+  }
+}
+
 .header-top {
   max-width: 90%;
   margin: 0 auto;
@@ -339,6 +409,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .footer-container__qrCodes {
     display: flex;
@@ -483,4 +554,7 @@
     font-weight: 400;
     line-height: 130%;
   }
+}
+.maincraftCard {
+  flex-wrap: wrap;
 }
