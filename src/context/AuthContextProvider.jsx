@@ -1,12 +1,5 @@
 import axios from "axios";
-import React, {
-  createContext,
-  useState,
-  ReactNode,
-  SetStateAction,
-  Dispatch,
-  useContext,
-} from "react";
+import React, { createContext, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const authContext = createContext();
@@ -25,7 +18,7 @@ const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   async function handleRegister(formData, navigate) {
@@ -59,60 +52,36 @@ const AuthContextProvider = ({ children }) => {
 
   async function checkAuth() {
     setLoading(true);
-    try {
-      const tokens = JSON.parse(localStorage.getItem("email") || "{}");
-      const Authorization = `Bearer ${tokens.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      // const res = await axios.post(
-      //   `${AUTH_API}/account/token/refresh/`,
-      //   {
-      //     refresh: tokens.refresh,
-      //   },
-      //   config
-      // // );
-      // localStorage.setItem(
-      //   "tokens",
-      //   JSON.stringify({
-      //     // access: res.data.access,
-      //     refresh: tokens.refresh,
-      //   })
-      // );
-      const email = localStorage.getItem("email") || "";
-      setCurrentUser(email);
-      // notify("success", NOTIFY_TYPES.success);
-    } catch (err) {
-      // console.log(err);
-      // handleLogout();
-      // notify("error", NOTIFY_TYPES.error);
-    } finally {
-      setLoading(false);
-    }
+    const tokens = JSON.parse(localStorage.getItem("email") || "{}");
+    const Authorization = `Bearer ${tokens.access}`;
+    const config = {
+      headers: {
+        Authorization,
+      },
+    };
+
+    const email = localStorage.getItem("email") || "";
+    setCurrentUser(email);
   }
 
   function handleLogout() {
-    try {
-      localStorage.removeItem("tokens");
-      localStorage.removeItem("email");
-      setCurrentUser(false);
-      navigate("/");
-      console.log("logout");
-      // notify("success", NOTIFY_TYPES.success);
-    } catch (e) {
-      // notify(e.code.split("/")[1], "error");
-      // notify("error", NOTIFY_TYPES.error);
-    }
+    localStorage.removeItem("tokens");
+    localStorage.removeItem("email");
+    setCurrentUser(false);
+    navigate("/");
+    console.log("logout");
   }
 
   const getUser = async () => {
     const { data } = await axios(`${AUTH_API}/account/users/`);
     const email = JSON.parse(localStorage.getItem("email"));
-    const user = data.results.find((elem) => elem.email == email);
-    setUser(user.email)
-    console.log(user);
+    if (!email) {
+      setUser("Guest");
+    } else {
+      const user = data.results.find((elem) => elem.email == email);
+      setUser(user.email);
+      console.log(user);
+    }
   };
   getUser();
 
