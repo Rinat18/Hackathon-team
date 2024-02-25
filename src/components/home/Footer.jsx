@@ -6,8 +6,13 @@ import paypal from "../../images/payPal.svg";
 import webmMoney from "../../images/WebMoney_logo_blue 2 1.svg";
 import webMoneyIcon from "../../images/WebMoneyMin.svg";
 import googleSefity from "../../images/GoogleSefity.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/filter#top");
+  };
   return (
     <>
       <footer className="footer">
@@ -21,19 +26,23 @@ export default function Footer() {
         </div>
         <div className="footer__container">
           <div className="footer-container__aboutCompany">
-            <h3>О компании</h3>
+            <h3 style={{ color: "white", marginBottom: "27px" }}>О компании</h3>
             <span>О нас</span>
             <span>Вакансии</span>
             <span>Реквизиты</span>
           </div>
           <div className="footer-container__contracts">
-            <h3>Договор оферты</h3>
-            <span>Каталог</span>
+            <h4 style={{ color: "white", marginBottom: "27px" }}>
+              Договор оферты
+            </h4>
+            <span onClick={handleClick}>Каталог</span>
             <span>Акции</span>
             <span>Личный кабинет</span>
           </div>
           <div className="footer-container__contracts">
-            <h3>Договор оферты</h3>
+            <h3 style={{ color: "white", marginBottom: "27px" }}>
+              Договор оферты
+            </h3>
             <span>Каталог</span>
             <span>Акции</span>
             <span>Личный кабинет</span>

@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .home {
   width: 100%;
   display: flex;
@@ -34,14 +39,19 @@
   justify-content: center;
 }
 
-.cardList{
-    width: 100%;
-    justify-content: center;
-}
-li{
-    border-color: white;
-}
-.pagination{
+.cardList {
+  width: 100%;
+  justify-content: center;
+
+  .pagination {
     display: flex;
     justify-content: center;
+  }
+  li {
+    border-color: white;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
 }

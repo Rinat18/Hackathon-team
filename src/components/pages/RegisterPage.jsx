@@ -1,11 +1,12 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import { Button, Typography } from "@mui/material";
-import { Navigate, useNavigate } from "react-router-dom";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import AuthContextProvider, {
   useAuth,
 } from "../../context/AuthContextProvider";
+import "./Login.scss";
 // import Loader from "../../components/loader/Loader";
 // import "./LoginPage.css";
 
@@ -37,13 +38,13 @@ export default function RegisterPage() {
     setError(false);
   }, []);
 
-//   if (loading) {
-//     return <Loader />;
-//   }
+  //   if (loading) {
+  //     return <Loader />;
+  //   }
   return (
     <>
       {error ? <h2>{error}</h2> : null}
-      <div className="register-bg flex justify-center items-center">
+      {/* <div className="register-bg flex justify-center items-center">
         <div className="flex flex-col items-center gap-5 bg-white w-72 h-96 border rounded-2xl border-violet-700 border-solid">
           <h1 className="pt-8">Register</h1>
 
@@ -75,13 +76,6 @@ export default function RegisterPage() {
             type="text"
             onChange={(e) => setName(e.target.value)}
           />
-          <TextField
-            label="brand"
-            color="secondary"
-            focused
-            type="brand"
-            onChange={(e) => setBrand(e.target.value)}
-          />
 
           <Button
             variant="outlined"
@@ -92,7 +86,66 @@ export default function RegisterPage() {
             Register
           </Button>
         </div>
-      </div>
+      </div> */}
+      <section className="login-section">
+        <div className="register-box">
+          <div className="center" action="">
+            <h2>Registration</h2>
+            <div className="input-cont">
+              <span className="icon">
+                <EmailIcon />
+              </span>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                required
+              />
+              <label>Email</label>
+            </div>
+            <div className="input-cont">
+              <span className="icon">
+                <LockIcon />
+              </span>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                required
+              />
+              <label>Password</label>
+            </div>
+            <div className="input-cont">
+              <span className="icon">
+                <LockIcon />
+              </span>
+              <input
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+                type="password"
+                required
+              />
+              <label>Repeat password</label>
+            </div>
+
+            <div className="remeber-forgot">
+              <label htmlFor="">
+                <input type="checkbox" /> Remeber me
+              </label>
+            </div>
+            <button
+              onClick={() => handleSave()}
+              className="btn-card-add"
+              type="submit"
+            >
+              Register
+            </button>
+            <div className="register-link">
+              <p>
+                Already have an account?
+                <Link to={"/login"}> Login</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

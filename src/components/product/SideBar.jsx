@@ -52,8 +52,6 @@ export default function SideBar() {
     setSearch(event.target.value);
     setVoiceInput(event.target.value);
   };
-
-
   return (
     <>
       <div className="containerSideBar">
@@ -179,7 +177,6 @@ export default function SideBar() {
         <button className="btn-add-card" onClick={resetFilters}>
           Сбросить фильтры
         </button>
-
       </div>
     </>
   );

@@ -1,12 +1,5 @@
 import axios from "axios";
-import React, {
-  createContext,
-  useState,
-  ReactNode,
-  SetStateAction,
-  Dispatch,
-  useContext,
-} from "react";
+import React, { createContext, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const authContext = createContext();
@@ -34,9 +27,6 @@ const AuthContextProvider = ({ children }) => {
       const res = await axios.post(`${AUTH_API}/account/register/`, formData);
       navigate("/");
       console.log(res, "register response");
-    } catch (err) {
-      setError(err.response?.data?.detail || "An error occurred");
-      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -59,19 +49,17 @@ const AuthContextProvider = ({ children }) => {
 
   async function checkAuth() {
     setLoading(true);
-    try {
-      const tokens = JSON.parse(localStorage.getItem("email") || "{}");
-      const Authorization = `Bearer ${tokens.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const email = localStorage.getItem("email") || "";
-      setCurrentUser(email);
-    } finally {
-      setLoading(false);
-    }
+    const tokens = JSON.parse(localStorage.getItem("email") || "{}");
+    const Authorization = `Bearer ${tokens.access}`;
+    const config = {
+      headers: {
+        Authorization,
+      },
+    };
+
+    const email = localStorage.getItem("email") || "";
+    setCurrentUser(email);
+
   }
 
   function handleLogout() {
@@ -92,6 +80,7 @@ const AuthContextProvider = ({ children }) => {
       setUser(user.email);
       console.log(user);
     }
+
   };
   getUser();
 
