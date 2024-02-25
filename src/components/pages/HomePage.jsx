@@ -5,9 +5,14 @@ import Pagination from "../product/Pagination";
 import { UseProduct } from "../../context/ProductContextProvider";
 import ProductCard from "../product/ProductCard";
 import steav from "../../images/steave.png";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContextProvider";
+import { admin } from "../../helpers/const";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const { getProducts, products } = UseProduct();
+  const { user } = useAuth();
   useEffect(() => {
     getProducts();
   }, []);
@@ -22,12 +27,23 @@ export default function HomePage() {
   const handleChange = (e, value) => {
     setPage(value);
   };
-
+  const handleClick = () => {
+    navigate("/add");
+  };
   return (
     <>
       <div className="home">
         <div className="home__container">
           <SliderPage />
+          {user == admin ? (
+            <button
+              style={{ marginTop: "50px" }}
+              onClick={handleClick}
+              className="btn-add-card"
+            >
+              Добавить товар
+            </button>
+          ) : null}
           <div className="cardList">
             {products && (
               <>
