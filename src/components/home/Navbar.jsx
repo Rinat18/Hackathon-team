@@ -7,10 +7,7 @@ import union from "../../images/Union.png";
 import catalogLogo from "../../images/catalogMain.svg";
 import "./HomePage.scss";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  getFavoriteCount,
-  getProductsCountInCart,
-} from "../../helpers/function";
+import { getProductsCountInCart } from "../../helpers/function";
 import { useCart } from "../../context/CartContextProvider";
 import { Badge } from "@mui/base";
 import { useFavorite } from "../../context/FavoritesContextProvider";
@@ -18,21 +15,20 @@ import logoMain from "../../images/logoMain.svg";
 import { useAuth } from "../../context/AuthContextProvider";
 
 export default function Navbar() {
-  const { user } = useAuth();
+  const { user, handleLogout } = useAuth();
   const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(0);
   const { addToCart } = useCart();
   useEffect(() => {
     setCartCount(getProductsCountInCart());
   }, [addToCart]);
-  const { addToFavorite } = useFavorite();
+  const { addToFavorite, favorites, getFavoriteCount } = useFavorite();
   const [favoriteCount, setFavoriteCount] = useState(0);
+  getFavoriteCount();
   useEffect(() => {
     setFavoriteCount(getFavoriteCount());
-    if (getFavoriteCount() == 0) {
-      setFavoriteCount(0);
-    }
-  }, [addToFavorite]);
+    console.log(123);
+  }, [favorites]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -48,9 +44,6 @@ export default function Navbar() {
           <div onClick={() => navigate("/")} className="header__logo">
             <img src={logoMain} alt="" />
           </div>
-
-
-
 
           <div className="header__links">
             <div className="burger-menu">
@@ -104,24 +97,6 @@ export default function Navbar() {
               >
                 Games Catalog
               </Link>
-              <Link
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                }}
-                to="#"
-              >
-                Promotion's
-              </Link>
-              <Link
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                }}
-                to="#"
-              >
-                Support
-              </Link>
             </div>
 
             <Badge
@@ -148,6 +123,21 @@ export default function Navbar() {
                 alt={user}
                 src="/static/images/avatar/2.jpg"
               />
+              {user == "GUEST" ? (
+                <button
+                  onClick={() => navigate("/registration")}
+                  className="register__Navbar"
+                >
+                  Register
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleLogout()}
+                  className="logOut__Navbar"
+                >
+                  Log-Out
+                </button>
+              )}
             </div>
           </div>
         </div>

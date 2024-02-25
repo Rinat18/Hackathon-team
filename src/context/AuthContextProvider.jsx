@@ -80,15 +80,13 @@ const AuthContextProvider = ({ children }) => {
       setUser(user.email);
       console.log(user);
     }
-
   };
   getUser();
 
   const changePassword = async (password) => {
     const tokens = JSON.parse(localStorage.getItem("token"));
     const auth = `Bearer ${tokens.access}`;
-    const test =
-      "Server: nginx/1.25.4 Date: Fri, 23 Feb 2024 19:03:34 GMT Content-Type: application/json Content-Length: 46 Connection: keep-alive Vary: Accept, origin Allow: POST, OPTIONS X-Frame-Options: DENY X-Content-Type-Options: nosniff Referrer-Policy: same-origin Cross-Origin-Opener-Policy: same-origin";
+    const test = "Server: nginx/1.25.4 Date: Fri, 23 Feb 2024 19:03:34 GMT Content-Type: application/json Content-Length: 46 Connection: keep-alive Vary: Accept, origin Allow: POST, OPTIONS X-Frame-Options: DENY X-Content-Type-Options: nosniff Referrer-Policy: same-origin Cross-Origin-Opener-Policy: same-origin";
     const formData = new FormData();
     formData.append("old_password", password.oldPassword);
     formData.append("new_password", password.newPassword);

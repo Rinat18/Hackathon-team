@@ -12,6 +12,7 @@ import Favorites from "../components/favorites/Favorites";
 import RegisterPage from "../components/pages/RegisterPage";
 import LoginPage from "../components/pages/LoginPage";
 import RefreshPassword from "../components/auth/RefreshPassword";
+import NotFound from "../components/pages/NotFound";
 
 export default function MainRoutes() {
   const PUBLIC_ROUTES = [
@@ -27,6 +28,7 @@ export default function MainRoutes() {
     { link: "/registration", element: <RegisterPage /> },
     { link: "/login", element: <LoginPage /> },
     { link: "/changePassword", element: <RefreshPassword /> },
+    { link: "*", element: <NotFound /> },
   ];
 
   return (

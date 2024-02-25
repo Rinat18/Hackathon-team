@@ -8,6 +8,8 @@ import { Badge } from "react-bootstrap";
 import { useAuth } from "../../context/AuthContextProvider";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+import ThumbDownRoundedIcon from "@mui/icons-material/ThumbDownRounded";
+import ThumbUpRoundedIcon from "@mui/icons-material/ThumbUpRounded";
 
 export default function DetailProductPage() {
   const { id } = useParams();
@@ -23,16 +25,18 @@ export default function DetailProductPage() {
     addLikes,
     likes,
     readLikes,
+    unlikes,
+    addunLikes,
+    readunLikes,
   } = UseProduct();
   const { addToCart, checkProductInCart } = useCart();
-
   useEffect(() => {
     getOneProduct(id);
     getProducts();
     readComments(id);
-    readLikes(id)
+    readLikes(id);
+    readunLikes(id);
   }, []);
-  console.log(comments);
   const [comm, setComm] = useState("молчит");
   const handleComment = () => {
     const obj = {
@@ -44,7 +48,6 @@ export default function DetailProductPage() {
         minute: "2-digit",
       }),
     };
-    console.log(obj);
     addComments(id, obj);
     setComm("");
   };
@@ -58,8 +61,21 @@ export default function DetailProductPage() {
       }),
     };
     addLikes(id, obj);
+    
   };
-  console.log(likes.length);
+  const addToUnLikes = () => {
+    const obj = {
+      name: user,
+      time: new Date().toLocaleTimeString("en-US", {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    };
+    addunLikes(id, obj);
+  };
+  console.log(unlikes);
+  console.log(likes);
   return (
     <>
       <div className="detailsContainer">
@@ -73,7 +89,6 @@ export default function DetailProductPage() {
           </p>
           <div className="detailsContainer-rightContent__buttons">
             <button>Купить</button>
-
             {checkProductInCart(oneProduct.id) ? (
               <button
                 style={{ backgroundColor: "#222222" }}
@@ -84,12 +99,11 @@ export default function DetailProductPage() {
             ) : (
               <button onClick={() => addToCart(oneProduct)}>В корзину</button>
             )}
-            <Badge badgeContent={likes.length}  color="primary">
-              <ThumbUpOffAltIcon onClick={() => addToLikes()} />
-            </Badge>
-            <Badge badgeContent={0}  color="primary">
-              <ThumbDownOffAltIcon onClick={() => addToLikes()} />
-            </Badge>
+
+            <ThumbUpOffAltIcon onClick={() => addToLikes()} />
+            <span>{likes.length}</span>
+            <ThumbDownOffAltIcon onClick={() => addToUnLikes()} />
+            <span>{unlikes.length}</span>
           </div>
           <div className="detailsContainer-rightContent__description">
             <div className="detailsContainer-rightContent-description__janr">

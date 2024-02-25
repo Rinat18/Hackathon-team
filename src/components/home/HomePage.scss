@@ -175,6 +175,7 @@
 }
 .maincraftCard {
   display: flex;
+  margin-bottom: 50px;
   .maincraftCard__items {
     background-image: url("../../images/creeper.png");
     width: 620px;
@@ -899,4 +900,21 @@
   .footer__logos {
     display: none;
   }
+}
+
+.register__Navbar{
+  margin-left: 5px;
+  width: 100px;
+  border-color: white;
+  border-radius: 10px;
+  color: white;
+  background-color: transparent;
+}
+.logOut__Navbar{
+  margin-left: 5px;
+  width: 100px;
+  border-color: white;
+  border-radius: 10px;
+  color: white;
+  background-color: transparent;
 }
