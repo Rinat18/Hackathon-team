@@ -13,6 +13,7 @@ export default function AddProductPage() {
     image: "",
     comments: [],
     likes: [],
+    unlikes: [],
   });
   useEffect(() => {}, []);
   const handleInput = (e) => {
