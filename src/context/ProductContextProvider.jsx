@@ -15,6 +15,7 @@ const INIT_STATE = {
   categories: [],
   comments: [],
   likes: [],
+  unlikes: [],
 };
 
 export default function ProductContextProvider({ children }) {
@@ -31,6 +32,8 @@ export default function ProductContextProvider({ children }) {
         return { ...state, comments: action.payload };
       case ACTIONS.GET_LIKES:
         return { ...state, likes: action.payload };
+      case ACTIONS.GET_UNLIKES:
+        return { ...state, unlikes: action.payload };
       default:
         return state;
     }
@@ -45,7 +48,6 @@ export default function ProductContextProvider({ children }) {
   // ! RENDER
   const getProducts = async () => {
     const { data } = await axios(`${API_PROD}${window.location.search}`);
-    console.log(window.location.search);
     dispatch({
       type: ACTIONS.GET_PRODUCTS,
       payload: data,
@@ -134,10 +136,47 @@ export default function ProductContextProvider({ children }) {
       data.likes.push(obj);
       await axios.patch(`${API_PROD}/${id}`, data);
       readLikes(id);
+      data.unlikes = data.unlikes.filter((elem) => elem.name !== obj.name);
+      await axios.patch(`${API_PROD}/${id}`, data);
+      readunLikes(id);
     } else {
       data.likes = data.likes.filter((elem) => elem.name !== obj.name);
       await axios.patch(`${API_PROD}/${id}`, data);
       readLikes(id);
+    }
+  };
+  // !READ Un LIKES
+  const readunLikes = async (id) => {
+    const { data } = await axios(`${API_PROD}/${id}`);
+    dispatch({
+      type: ACTIONS.GET_UNLIKES,
+      payload: data.unlikes,
+    });
+  };
+  // ! ADD UN LIKE
+  const addunLikes = async (id, obj) => {
+    const { data } = await axios(`${API_PROD}/${id}`);
+    const check = data.unlikes.filter((elem) => elem.name === obj.name);
+    if (check.length == 0) {
+      data.unlikes.push(obj);
+      await axios.patch(`${API_PROD}/${id}`, data);
+      readunLikes(id);
+      data.likes = data.likes.filter((elem) => elem.name !== obj.name);
+      await axios.patch(`${API_PROD}/${id}`, data);
+      readLikes(id);
+    } else {
+      data.unlikes = data.unlikes.filter((elem) => elem.name !== obj.name);
+      await axios.patch(`${API_PROD}/${id}`, data);
+      readunLikes(id);
+    }
+  };
+  //! like style
+  const checkLike = async (id, user) => {
+    const { data } = await axios(`${API_PROD}/${id}`);
+    if (data) {
+      let checked = data.likes.filter((elem) => elem.name === user);
+      console.log(checked);
+      return checked.length > 0 ? true : false;
     }
   };
 
@@ -159,6 +198,10 @@ export default function ProductContextProvider({ children }) {
     likes: state.likes,
     readLikes,
     addLikes,
+    checkLike,
+    addunLikes,
+    unlikes: state.unlikes,
+    readunLikes,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>

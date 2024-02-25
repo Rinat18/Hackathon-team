@@ -1,12 +1,13 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { ACTIONS } from "../helpers/const";
-import { getLocal, getLocalFavorites } from "../helpers/function";
+import { getFavoriteCount, getLocal, getLocalFavorites } from "../helpers/function";
 
 export const FavoriteContext = createContext();
 export const useFavorite = () => useContext(FavoriteContext);
 
 const INIT_STATE = {
   favorites: [],
+  favoritesLength: getFavoriteCount()
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -55,8 +56,13 @@ const FavoritesContextProvider = ({ children }) => {
       favorites.favorite = favorites.favorite.filter(
         (elem) => elem.id !== card.id
       );
+      dispatch({
+        type: ACTIONS.GET_FAVORITE,
+        payload: favorites,
+      });
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
+
     dispatch({
       type: ACTIONS.GET_FAVORITE,
       payload: favorites,
@@ -72,14 +78,13 @@ const FavoritesContextProvider = ({ children }) => {
     }
   };
 
-
-
   const values = {
     favorites: state.favorites,
     state,
     checkProduct,
     readFavorite,
     addToFavorite,
+    getFavoriteCount,
   };
 
   return (

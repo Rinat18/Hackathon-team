@@ -6,14 +6,23 @@ import VoiceSearch from "./VoiceSearch";
 
 export default function SideBar() {
   const [price, setPrice] = useState(50);
-  const navigate = useNavigate();
+  const [maxPriceValue, setMaxPriceValue] = useState(0);
+  const [minPriceValue, setMinPriceValue] = useState(0);
+
   const { categories, getCategories, fetchByParams, getProducts } =
     UseProduct();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 7500 });
+  // const [priceRange, setPriceRange] = useState({ min: 0, max: 7500 });
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [voiceInput, setVoiceInput] = useState("");
+
+  const handleRangeChange = (event) => {
+    setMaxPriceValue(event.target.value);
+  };
+  const handleRangeChangeMin = (event) => {
+    setMinPriceValue(event.target.value);
+  };
 
   useEffect(() => {
     setSearchParams({
@@ -28,7 +37,7 @@ export default function SideBar() {
 
   const resetFilters = () => {
     setSearch("");
-    setPriceRange({ min: 0, max: 7500 });
+    // setPriceRange({ min: 0, max: 7500 });
     fetchByParams("category", "all");
     setSelectedCategory("all");
   };
@@ -117,60 +126,6 @@ export default function SideBar() {
                   </label>
                 </div>
               ))}
-            </div>
-            <div className="wrapper-side">
-              <div className="wrapper-range">
-                <div className="price-input">
-                  <div className="field">
-                    <span style={{ color: "#fff" }}>Min</span>
-                    <input
-                      type="number"
-                      style={{ color: "#fff" }}
-                      className="input-search"
-                      value={priceRange.min}
-                      name="min"
-                    />
-                  </div>
-                  <div className="seperator">-</div>
-                  <div className="field">
-                    <span style={{ color: "#fff" }}>Max</span>
-                    <input
-                      type="number"
-                      style={{ color: "#fff" }}
-                      className="input-search"
-                      value={priceRange.max}
-                      name="max"
-                    />
-                  </div>
-                </div>
-                <div className="slider">
-                  <div
-                    className="progress"
-                    style={{
-                      left: `${(priceRange.min / 10000) * 100}%`,
-                      right: `${(1 - priceRange.max / 10000) * 100}%`,
-                    }}
-                  ></div>
-                </div>
-                <div className="range-input">
-                  <input
-                    type="range"
-                    className="range-min"
-                    min={0}
-                    max={10000}
-                    value={priceRange.min}
-                    step={100}
-                  />
-                  <input
-                    type="range"
-                    className="range-max"
-                    min={0}
-                    max={10000}
-                    value={priceRange.max}
-                    step={100}
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>
