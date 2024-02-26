@@ -43,6 +43,7 @@ export default function ProductContextProvider({ children }) {
   // ! CREATE
   const addProduct = async (newProd) => {
     await axios.post(API_PROD, newProd);
+    navigate("/")
   };
 
   // ! RENDER
