@@ -83,6 +83,21 @@ export default function Navbar() {
                   >
                     Support
                   </Link>
+                  {user == "GUEST" ? (
+                    <button
+                      onClick={() => navigate("/registration")}
+                      className="register__Navbar"
+                    >
+                      Register
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleLogout()}
+                      className="logOut__Navbar"
+                    >
+                      Log-Out
+                    </button>
+                  )}
                 </div>
               )}
             </div>

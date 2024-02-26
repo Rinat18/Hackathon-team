@@ -146,8 +146,8 @@
 
   .detailsContainer__leftContent {
     img {
-      width: 220px;
-      height: 300px;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -303,7 +303,7 @@
     justify-content: center;
 
     input {
-      width: 500px;
+      width: 100%;
       margin: 0;
       color: #ffffff;
       height: 40px;
@@ -342,4 +342,22 @@
 
 .input-field::placeholder {
   color: #999; /* цвет placeholder */
+}
+
+@media screen and (max-width: 425px) {
+  .detailsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .detailsContainer-rightContent__description{
+    display: flex;
+    flex-direction: column;
+  }
+  .detailsContainer__leftContent{
+    width: 100%;
+  }
+  .detailsContainer .detailsContainer__rightContent {
+    margin-left: 0;
+  }
 }
