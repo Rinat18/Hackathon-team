@@ -154,7 +154,6 @@ export default function Navbar() {
                   Log-Out
                 </button>
               )}
-
             </div>
           </div>
         </div>
